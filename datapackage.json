@@ -33,103 +33,102 @@
             }
           },
           {
-            "name": "Jurisdiction",
+            "name": "ApplicationRequestOtherType",
             "type": "string",
-            "title": "Jurisdiction",
-            "description": "The jurisdiction in which the voter is registered",
-            "constraints": {
-              "required": true
-            }
+            "title": "Other Application Request Type",
+            "description": "Specifies an alternate method by which the application request was received"
           },
           {
-            "name": "IsUocava",
-            "type": "boolean",
-            "title": "Is UOCAVA",
-            "description": "Indicates whether the voter is UOCAVA or domestic absentee",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "VoterType",
-            "type": "string",
-            "title": "Voter Type",
-            "description": "Specifies whether the voter is military, overseas citizen, or other",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "military",
-                "overseas-citizen",
-                "other"
-              ]
-            }
-          },
-          {
-            "name": "MailingCountry",
-            "type": "string",
-            "title": "Mailing Country",
-            "description": "Specifies what country to which the ballot was mailed",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "RequestReceivedDate",
+            "name": "ApplicationRequestProcessedDate",
             "type": "date",
-            "title": "Request Received Date",
-            "description": "Specifies the date the request was received by the local or state election official",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "RequestMode",
-            "type": "string",
-            "title": "Request Mode",
-            "description": "Specifies the method by which the request was received",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "mail",
-                "email",
-                "fax"
-              ]
-            }
-          },
-          {
-            "name": "RequestProcessedDate",
-            "type": "date",
-            "title": "Request Processed Date",
+            "title": "Date Application Request Was Processed",
             "description": "Specifies the date the request was processed by the local or state election official",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "BallotMailedDate",
+            "name": "ApplicationRequestReceivedDate",
             "type": "date",
-            "title": "Ballot Mailed Date",
-            "description": "Specifies the date the ballot was mailed to the voter by the local or state election official",
+            "title": "Application Request Received Date",
+            "description": "Specifies the date the application request was received by the local or state election official",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "DeliveryMode",
+            "name": "ApplicationRequestType",
             "type": "string",
-            "title": "Delivery Mode",
+            "title": "Application Request Type",
+            "description": "Specifies the method by which the application request was received",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "mail",
+                "email",
+                "fax",
+                "other"
+              ]
+            }
+          },
+          {
+            "name": "ApplicationType",
+            "type": "string",
+            "title": "Type of Application",
+            "description": "Specifies the type of ballot application request",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "fpca",
+                "informal-request",
+                "state-application"
+              ]
+            }
+          },
+          {
+            "name": "BallotDeliveryOtherType",
+            "type": "string",
+            "title": "Other Ballot Delivery Type",
+            "description": "Specifies an alternate method in which the ballot was sent to the voter"
+          },
+          {
+            "name": "BallotDeliveryType",
+            "type": "string",
+            "title": "Ballot Delivery Type",
             "description": "Specifies the method in which the ballot was sent to the voter",
             "constraints": {
               "required": true,
               "enum": [
                 "mail",
                 "email",
-                "fax"
+                "fax",
+                "other"
               ]
             }
           },
           {
-            "name": "BallotReturnedDate",
+            "name": "BallotRejectionOtherType",
+            "type": "string",
+            "title": "Other Ballot Rejection Type",
+            "description": "Specifies an alternate reason why the reason the ballot was rejected"
+          },
+          {
+            "name": "BallotRejectionType",
+            "type": "string",
+            "title": "BallotRejectionType",
+            "description": "Specifies the reason why the ballot was rejected",
+            "constraints": {
+              "enum": [
+                "not-timely",
+                "voter-signature",
+                "voided-spoiled",
+                "postmark",
+                "undeliverable"
+              ]
+            }
+          },
+          {
+            "name": "BallotReturnDate",
             "type": "date",
             "title": "Ballot Returned Date",
             "description": "Specifies the date the ballot was returned or received by the local or state election official",
@@ -138,81 +137,33 @@
             }
           },
           {
-            "name": "BallotReturnMode",
+            "name": "BallotReturnOtherType",
             "type": "string",
-            "title": "Ballot Return Mode",
+            "title": "Ballot Return Type",
+            "description": "Specifies an alternate method by which the ballot was returned to the local or state election official"
+          },
+          {
+            "name": "BallotReturnType",
+            "type": "string",
+            "title": "Ballot Return Type",
             "description": "Specifies the method by which the ballot was returned to the local or state election official",
             "constraints": {
               "required": true,
               "enum": [
                 "mail",
                 "email",
-                "fax"
+                "fax",
+                "other"
               ]
             }
           },
           {
-            "name": "ApplicationRequestType",
-            "type": "string",
-            "title": "Application Request Type",
-            "description": "Specifies the type of ballot application request",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "domestic-military-mail-to-voter",
-                "domestic-military-email-to-voter",
-                "overseas-military-mail-to-voter",
-                "overseas-military-email-to-voter",
-                "overseas-citizen-temporarily-mail-to-voter",
-                "overseas-citizen-temporarily-email-to-voter",
-                "overseas-citizen-indefinitely-mail-to-voter",
-                "overseas-citizen-indefinitely-email-to-voter",
-                "informal-request-mail-inside-us",
-                "informal-request-mail-outside-us",
-                "state-application-form-request-inside-us",
-                "state-application-form-request-outside-us"
-              ]
-            }
-          },
-          {
-            "name": "WasFpcaRejected",
-            "type": "boolean",
-            "title": "Was FPCA Rejected",
-            "description": "Specifies whether the Federal Postcard Application was accepted or rejected",
+            "name": "BallotSentDate",
+            "type": "date",
+            "title": "Ballot Sent Date",
+            "description": "Specifies the date the ballot was sent to the voter by the local or state election official",
             "constraints": {
               "required": true
-            }
-          },
-          {
-            "name": "FpcaRejectionComments",
-            "type": "string",
-            "title": "FPCA Rejection Comments",
-            "description": "Comments on why the Federal Postcard Application was rejected"
-          },
-          {
-            "name": "WasBallotRejected",
-            "type": "boolean",
-            "title": "Was Ballot Rejected",
-            "description": "Specifies whether the ballot was accepted or rejected",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "BallotRejectionType",
-            "type": "string",
-            "title": "BallotRejectionType",
-            "description": "Specifies the reason why the ballot was rejected",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "not-timely",
-                "voter-signature",
-                "duplicate-ballot",
-                "voided-spoiled",
-                "postmark",
-                "undeliverable"
-              ]
             }
           },
           {
@@ -226,6 +177,121 @@
                 "fwab",
                 "absentee"
               ]
+            }
+          },
+          {
+            "name": "FpcaRejectionOtherType",
+            "type": "string",
+            "title": "Other FPCA Rejection Type",
+            "description": "Specifies an alternate reason why the Federal Postcard Application was rejected"
+          },
+          {
+            "name": "FpcaRejectionType",
+            "type": "string",
+            "title": "FPCA Rejection Type",
+            "description": "Specifies why the Federal Postcard Application was rejected",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "not-timely",
+                "voter-signature",
+                "postmark",
+                "voided-or-spoiled",
+                "other"
+              ]
+            }
+          },
+          {
+            "name": "IsVoterMilitary",
+            "type": "boolean",
+            "title": "Is Voter Military",
+            "description": "Indicates whether the voter is designated a member of the military or a civilian",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "IsVoterUocava",
+            "type": "boolean",
+            "title": "Is Voter UOCAVA",
+            "description": "Indicates whether the voter is UOCAVA or domestic absentee",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "JurisdictionId",
+            "type": "string",
+            "title": "Jurisdiction Identifier",
+            "description": "Specifies a unique identifier for the jurisdiction"
+          },
+          {
+            "name": "JurisdictionIdType",
+            "type": "string",
+            "title": "Jurisdiction Identifier Type",
+            "description": "Specifies the type of identifier used to identify the jurisdiction",
+            "constraints": {
+              "enum": [
+                "ocd-id",
+                "fips",
+                "local"
+              ]
+            }
+          },
+          {
+            "name": "JurisdictionName",
+            "type": "string",
+            "title": "Jurisdiction Name",
+            "description": "Specifies the name of the jurisdiction in which the voter is registered",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "VoterMailingCountry",
+            "type": "string",
+            "title": "Voter's Mailing Country",
+            "description": "Specifies what country to which the ballot was mailed",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "VoterOtherType",
+            "type": "string",
+            "title": "Other Voter Type",
+            "description": "Specifies another type of UOCAVA voter"
+          },
+          {
+            "name": "VoterType",
+            "type": "string",
+            "title": "Voter Type",
+            "description": "Specifies whether the voter is domestic or overseas military, overseas citizen, or other",
+            "constraints": {
+              "enum": [
+                "domestic-military",
+                "overseas-military",
+                "overseas-citizen",
+                "other"
+              ]
+            }
+          },
+          {
+            "name": "WasBallotRejected",
+            "type": "boolean",
+            "title": "Was Ballot Rejected",
+            "description": "Specifies whether the ballot was accepted or rejected",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "WasFpcaRejected",
+            "type": "boolean",
+            "title": "Was FPCA Rejected",
+            "description": "Specifies whether the Federal Postcard Application was accepted or rejected",
+            "constraints": {
+              "required": true
             }
           }
         ]
