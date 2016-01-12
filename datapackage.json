@@ -86,27 +86,6 @@
             }
           },
           {
-            "name": "BallotDeliveryOtherType",
-            "type": "string",
-            "title": "Other Ballot Delivery Type",
-            "description": "Specifies an alternate method in which the ballot was sent to the voter"
-          },
-          {
-            "name": "BallotDeliveryType",
-            "type": "string",
-            "title": "Ballot Delivery Type",
-            "description": "Specifies the method in which the ballot was sent to the voter",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "mail",
-                "email",
-                "fax",
-                "other"
-              ]
-            }
-          },
-          {
             "name": "BallotRejectionOtherType",
             "type": "string",
             "title": "Other Ballot Rejection Type",
@@ -158,12 +137,33 @@
             }
           },
           {
-            "name": "BallotSentDate",
+            "name": "BallotTransmissionDate",
             "type": "date",
-            "title": "Ballot Sent Date",
+            "title": "Ballot Transmission Date",
             "description": "Specifies the date the ballot was sent to the voter by the local or state election official",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "BallotTransmissionOtherType",
+            "type": "string",
+            "title": "Other Ballot Transmission Type",
+            "description": "Specifies an alternate method in which the ballot was sent to the voter"
+          },
+          {
+            "name": "BallotTransmissionType",
+            "type": "string",
+            "title": "Ballot Transmission Type",
+            "description": "Specifies the method in which the ballot was sent to the voter",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "mail",
+                "email",
+                "fax",
+                "other"
+              ]
             }
           },
           {
