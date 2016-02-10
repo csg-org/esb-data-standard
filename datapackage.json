@@ -12,7 +12,7 @@
     "OVI"
   ],
   "version": "2015",
-  "last_updated": "2015-12-22",
+  "last_updated": "2016-02-10",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
     "web": "http://www.csgdc.org/OverseasVotingInitiative/"
@@ -42,10 +42,7 @@
             "name": "ApplicationRequestProcessedDate",
             "type": "date",
             "title": "Date Application Request Was Processed",
-            "description": "Specifies the date the request was processed by the local or state election official",
-            "constraints": {
-              "required": true
-            }
+            "description": "Specifies the date the request was processed by the local or state election official"
           },
           {
             "name": "ApplicationRequestReceivedDate",
@@ -56,6 +53,20 @@
               "required": true
             }
           },
+	  {
+	    "name": "ApplicationRequestStatusType",
+            "type": "string",
+            "title": "Application Request Status",
+            "description": "Specifies the current status of the application",
+            "constraints": {
+              "required": true,
+              "enum": [
+		"valid",
+		"invalid",
+		"duplicate"
+              ]
+            }
+	  },
           {
             "name": "ApplicationRequestType",
             "type": "string",
@@ -81,7 +92,8 @@
               "enum": [
                 "fpca",
                 "informal-request",
-                "state-application"
+                "state-application",
+		"fwab"
               ]
             }
           },
@@ -110,10 +122,7 @@
             "name": "BallotReturnDate",
             "type": "date",
             "title": "Ballot Returned Date",
-            "description": "Specifies the date the ballot was returned or received by the local or state election official",
-            "constraints": {
-              "required": true
-            }
+            "description": "Specifies the date the ballot was returned or received by the local or state election official"
           },
           {
             "name": "BallotReturnOtherType",
@@ -140,10 +149,7 @@
             "name": "BallotTransmissionDate",
             "type": "date",
             "title": "Ballot Transmission Date",
-            "description": "Specifies the date the ballot was sent to the voter by the local or state election official",
-            "constraints": {
-              "required": true
-            }
+            "description": "Specifies the date the ballot was sent to the voter by the local or state election official"
           },
           {
             "name": "BallotTransmissionOtherType",
@@ -157,7 +163,6 @@
             "title": "Ballot Transmission Type",
             "description": "Specifies the method in which the ballot was sent to the voter",
             "constraints": {
-              "required": true,
               "enum": [
                 "mail",
                 "email",
@@ -172,7 +177,6 @@
             "title": "Ballot Type",
             "description": "Specifies the type of ballot transferred to the voter",
             "constraints": {
-              "required": true,
               "enum": [
                 "fwab",
                 "absentee"
@@ -191,7 +195,6 @@
             "title": "FPCA Rejection Type",
             "description": "Specifies why the Federal Postcard Application was rejected",
             "constraints": {
-              "required": true,
               "enum": [
                 "not-timely",
                 "voter-signature",
@@ -223,7 +226,10 @@
             "name": "JurisdictionId",
             "type": "string",
             "title": "Jurisdiction Identifier",
-            "description": "Specifies a unique identifier for the jurisdiction"
+            "description": "Specifies a unique identifier for the jurisdiction",
+	    "constraints": {
+	      "required": true
+	    }
           },
           {
             "name": "JurisdictionIdType",
@@ -231,6 +237,7 @@
             "title": "Jurisdiction Identifier Type",
             "description": "Specifies the type of identifier used to identify the jurisdiction",
             "constraints": {
+	      "required": true,
               "enum": [
                 "ocd-id",
                 "fips",
@@ -280,19 +287,13 @@
             "name": "WasBallotRejected",
             "type": "boolean",
             "title": "Was Ballot Rejected",
-            "description": "Specifies whether the ballot was accepted or rejected",
-            "constraints": {
-              "required": true
-            }
+            "description": "Specifies whether the ballot was accepted or rejected"
           },
           {
             "name": "WasFpcaRejected",
             "type": "boolean",
             "title": "Was FPCA Rejected",
-            "description": "Specifies whether the Federal Postcard Application was accepted or rejected",
-            "constraints": {
-              "required": true
-            }
+            "description": "Specifies whether the Federal Postcard Application was accepted or rejected"
           }
         ]
       }
