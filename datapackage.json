@@ -61,9 +61,9 @@
             "constraints": {
               "required": true,
               "enum": [
-		"valid",
+		"duplicate",
 		"invalid",
-		"duplicate"
+		"valid"
               ]
             }
 	  },
@@ -75,9 +75,9 @@
             "constraints": {
               "required": true,
               "enum": [
-                "mail",
                 "email",
                 "fax",
+                "mail",
                 "other"
               ]
             }
@@ -91,9 +91,9 @@
               "required": true,
               "enum": [
                 "fpca",
+		"fwab",
                 "informal-request",
-                "state-application",
-		"fwab"
+                "state-application"
               ]
             }
           },
@@ -111,10 +111,11 @@
             "constraints": {
               "enum": [
                 "not-timely",
+		"postmark",
+                "undeliverable",
                 "voter-signature",
                 "voided-spoiled",
-                "postmark",
-                "undeliverable"
+		"other"
               ]
             }
           },
@@ -138,9 +139,9 @@
             "constraints": {
               "required": true,
               "enum": [
-                "mail",
                 "email",
                 "fax",
+                "mail",
                 "other"
               ]
             }
@@ -164,9 +165,9 @@
             "description": "Specifies the method in which the ballot was sent to the voter",
             "constraints": {
               "enum": [
-                "mail",
                 "email",
                 "fax",
+                "mail",
                 "other"
               ]
             }
@@ -178,8 +179,8 @@
             "description": "Specifies the type of ballot transferred to the voter",
             "constraints": {
               "enum": [
-                "fwab",
-                "absentee"
+                "absentee",
+                "fwab"
               ]
             }
           },
@@ -197,8 +198,8 @@
             "constraints": {
               "enum": [
                 "not-timely",
-                "voter-signature",
                 "postmark",
+                "voter-signature",
                 "voided-or-spoiled",
                 "other"
               ]
@@ -277,8 +278,8 @@
             "constraints": {
               "enum": [
                 "domestic-military",
-                "overseas-military",
                 "overseas-citizen",
+                "overseas-military",
                 "other"
               ]
             }
