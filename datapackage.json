@@ -106,7 +106,7 @@
           {
             "name": "BallotRejectionType",
             "type": "string",
-            "title": "BallotRejectionType",
+            "title": "Ballot Rejection Type",
             "description": "Specifies the reason why the ballot was rejected",
             "constraints": {
               "enum": [
