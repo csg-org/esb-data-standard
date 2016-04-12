@@ -113,7 +113,9 @@
                 "not-timely",
 		"postmark",
                 "undeliverable",
+                "voter-died",
                 "voter-signature",
+		"voter-unregistered",
                 "voided-spoiled",
 		"other"
               ]
