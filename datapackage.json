@@ -1,7 +1,7 @@
 {
   "name": "ovi-csv-data",
   "title": "Overseas Voting Initiative CSV Data",
-  "description": "Non-personally-identifiable absentee voter information",
+  "description": "Non-personally-identifiable absentee voter transactions",
   "license": "TBD",
   "keywords": [
     "CSG",
@@ -11,8 +11,8 @@
     "Overseas Voting Initiative",
     "OVI"
   ],
-  "version": "2015",
-  "last_updated": "2016-04-12",
+  "version": "0.1",
+  "last_updated": "2016-05-04",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
     "web": "http://www.csgdc.org/OverseasVotingInitiative/"
@@ -63,6 +63,7 @@
               "enum": [
 		"duplicate",
 		"invalid",
+		"pending",
 		"valid"
               ]
             }
@@ -78,6 +79,7 @@
                 "email",
                 "fax",
                 "mail",
+		"online",
                 "other"
               ]
             }
@@ -110,11 +112,12 @@
             "description": "Specifies the reason why the ballot was rejected",
             "constraints": {
               "enum": [
+		"mismatch-voter-signature",
+                "missing-voter-signature",
                 "not-timely",
 		"postmark",
                 "undeliverable",
                 "voter-died",
-                "voter-signature",
 		"voter-unregistered",
                 "voided-spoiled",
 		"other"
@@ -144,6 +147,7 @@
                 "email",
                 "fax",
                 "mail",
+		"online",
                 "other"
               ]
             }
@@ -170,6 +174,7 @@
                 "email",
                 "fax",
                 "mail",
+		"online",
                 "other"
               ]
             }
@@ -187,42 +192,26 @@
             }
           },
           {
-            "name": "FpcaRejectionOtherType",
+            "name": "FpcaStatusOtherType",
             "type": "string",
-            "title": "Other FPCA Rejection Type",
-            "description": "Specifies an alternate reason why the Federal Postcard Application was rejected"
+            "title": "Other FPCA Status Type",
+            "description": "Specifies an alternate processing status for the Federal Postcard Application"
           },
           {
-            "name": "FpcaRejectionType",
+            "name": "FpcaStatusType",
             "type": "string",
-            "title": "FPCA Rejection Type",
-            "description": "Specifies why the Federal Postcard Application was rejected",
+            "title": "FPCA Status Type",
+            "description": "Specifies the processing status for the Federal Postcard Application",
             "constraints": {
               "enum": [
-                "not-timely",
-                "postmark",
-                "voter-signature",
-                "voided-or-spoiled",
+		"invalid",
+                "missing-ssn",
+                "missing-state-id-number",
+                "missing-voter-signature",
+		"pending",
+		"valid",
                 "other"
               ]
-            }
-          },
-          {
-            "name": "IsVoterMilitary",
-            "type": "boolean",
-            "title": "Is Voter Military",
-            "description": "Indicates whether the voter is designated a member of the military or a civilian",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "IsVoterUocava",
-            "type": "boolean",
-            "title": "Is Voter UOCAVA",
-            "description": "Indicates whether the voter is UOCAVA or domestic absentee",
-            "constraints": {
-              "required": true
             }
           },
           {
@@ -280,23 +269,12 @@
             "constraints": {
               "enum": [
                 "domestic-military",
+		"military",
                 "overseas-citizen",
                 "overseas-military",
                 "other"
               ]
             }
-          },
-          {
-            "name": "WasBallotRejected",
-            "type": "boolean",
-            "title": "Was Ballot Rejected",
-            "description": "Specifies whether the ballot was accepted or rejected"
-          },
-          {
-            "name": "WasFpcaRejected",
-            "type": "boolean",
-            "title": "Was FPCA Rejected",
-            "description": "Specifies whether the Federal Postcard Application was accepted or rejected"
           }
         ]
       }
