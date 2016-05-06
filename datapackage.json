@@ -191,6 +191,24 @@
               ]
             }
           },
+	  {
+	    "name": "ElectionDate",
+	    "type": "date",
+	    "title": "Election Date",
+	    "description": "Specifies the date the election took place",
+	    "constraints": {
+	      "required": true
+	    }
+	  },
+	  {
+	    "name": "ElectionName",
+	    "type": "string",
+	    "title": "Election Name",
+	    "description": "Specifies the name of the election",
+	    "constraints": {
+	      "required": true
+	    }
+	  },
           {
             "name": "FpcaStatusOtherType",
             "type": "string",
