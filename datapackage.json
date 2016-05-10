@@ -11,22 +11,22 @@
     "Overseas Voting Initiative",
     "OVI"
   ],
-  "version": "0.1",
-  "last_updated": "2016-05-04",
+  "version": "0.2",
+  "last_updated": "2016-05-10",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
     "web": "http://www.csgdc.org/OverseasVotingInitiative/"
   }],
   "resources": [
     {
-      "path": "absentee_voter_data.csv",
+      "path": "absentee_tx_data.csv",
       "schema": {
         "fields": [
           {
             "name": "ID",
             "type": "string",
             "title": "Identifier",
-            "description": "Unique identifier for the record",
+            "description": "Unique identifier for the transaction (i.e. not the voter). IDs should remain consistent, regardless of when an export is created.",
             "constraints": {
               "required": true,
               "unique": true
@@ -63,8 +63,12 @@
               "enum": [
 		"duplicate",
 		"invalid",
+                "missing-ssn",
+                "missing-state-id-number",
+                "missing-voter-signature",
 		"pending",
-		"valid"
+		"valid",
+                "other"
               ]
             }
 	  },
@@ -142,7 +146,6 @@
             "title": "Ballot Return Type",
             "description": "Specifies the method by which the ballot was returned to the local or state election official",
             "constraints": {
-              "required": true,
               "enum": [
                 "email",
                 "fax",
@@ -210,29 +213,6 @@
 	    }
 	  },
           {
-            "name": "FpcaStatusOtherType",
-            "type": "string",
-            "title": "Other FPCA Status Type",
-            "description": "Specifies an alternate processing status for the Federal Postcard Application"
-          },
-          {
-            "name": "FpcaStatusType",
-            "type": "string",
-            "title": "FPCA Status Type",
-            "description": "Specifies the processing status for the Federal Postcard Application",
-            "constraints": {
-              "enum": [
-		"invalid",
-                "missing-ssn",
-                "missing-state-id-number",
-                "missing-voter-signature",
-		"pending",
-		"valid",
-                "other"
-              ]
-            }
-          },
-          {
             "name": "JurisdictionId",
             "type": "string",
             "title": "Jurisdiction Identifier",
@@ -268,16 +248,7 @@
             "name": "VoterMailingCountry",
             "type": "string",
             "title": "Voter's Mailing Country",
-            "description": "Specifies what country to which the ballot was mailed",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "VoterOtherType",
-            "type": "string",
-            "title": "Other Voter Type",
-            "description": "Specifies another type of UOCAVA voter"
+            "description": "Specifies what country to which the ballot was mailed"
           },
           {
             "name": "VoterType",
@@ -293,7 +264,13 @@
                 "other"
               ]
             }
-          }
+          },
+	  {
+	    "name": "WasApplicationRejected",
+	    "type": "boolean",
+	    "title": "Was the Application Rejected",
+	    "Description": "Specifies whether the application request was accepted or rejected"
+	  }
         ]
       }
     }
