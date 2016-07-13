@@ -11,7 +11,7 @@
     "Overseas Voting Initiative",
     "OVI"
   ],
-  "version": "0.2",
+  "version": "0.3",
   "last_updated": "2016-05-10",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
@@ -55,7 +55,7 @@
           },
 	  {
 	    "name": "ApplicationRequestStatusType",
-            "type": "string",
+            "type": "array",
             "title": "Application Request Status",
             "description": "Specifies the current status of the application",
             "constraints": {
@@ -111,7 +111,7 @@
           },
           {
             "name": "BallotRejectionType",
-            "type": "string",
+            "type": "array",
             "title": "Ballot Rejection Type",
             "description": "Specifies the reason why the ballot was rejected",
             "constraints": {
