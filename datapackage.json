@@ -1,6 +1,6 @@
 {
-  "name": "ovi-csv-data",
-  "title": "Overseas Voting Initiative CSV Data",
+  "name": "esb-csv-data",
+  "title": "EAVS Section B CSV Data Standard",
   "description": "Non-personally-identifiable absentee voter transactions",
   "license": "TBD",
   "keywords": [
@@ -11,15 +11,15 @@
     "Overseas Voting Initiative",
     "OVI"
   ],
-  "version": "0.3",
-  "last_updated": "2016-07-13",
+  "version": "0.4",
+  "last_updated": "2016-09-15",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
-    "web": "http://www.csgdc.org/OverseasVotingInitiative/"
+    "web": "http://www.csg.org/ovi/"
   }],
   "resources": [
     {
-      "path": "absentee_tx_data.csv",
+      "path": "esb_data.csv",
       "schema": {
         "fields": [
           {
@@ -32,6 +32,15 @@
               "unique": true
             }
           },
+	  {
+	    "name": "VoterID",
+	    "type": "string",
+	    "title": "Voter Identifier",
+	    "description": "Identifier that uniquely identifies a voter record, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze the efficacy of each transaction type for individual voters.",
+	    "constraints": {
+	      "required": true
+	    }
+	  },
           {
             "name": "ApplicationRequestOtherType",
             "type": "string",
