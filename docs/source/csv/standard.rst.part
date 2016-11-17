@@ -1,0 +1,287 @@
+.. _ID:
+
+ID
+``
+*This field is required and must be unique.*
+
+Unique identifier for the transaction (i.e. not the voter). IDs should remain consistent, regardless of when an export is created.
+
+
+
+.. _VoterID:
+
+VoterID
+```````
+*This field is required.*
+
+Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voters. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.
+
+
+
+.. _ApplicationRequestOtherType:
+
+ApplicationRequestOtherType
+```````````````````````````
+
+
+If :ref:`ApplicationRequestType` fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received.
+
+
+
+.. _ApplicationRequestProcessedDate:
+
+ApplicationRequestProcessedDate
+```````````````````````````````
+
+
+Specifies the date the request was processed by the local or state election official.
+
+
+
+.. _ApplicationRequestReceivedDate:
+
+ApplicationRequestReceivedDate
+``````````````````````````````
+*This field is required.*
+
+Specifies the date the application request was received by the local or state election official.
+
+
+
+.. _ApplicationRequestStatusType:
+
+ApplicationRequestStatusType
+````````````````````````````
+*This field is required.*
+
+Specifies the current status of the application. Multiple values are possible.
+
+- duplicate
+- invalid
+- missing-ssn
+- missing-state-id-number
+- missing-voter-signature
+- pending
+- valid
+- other
+
+.. _ApplicationRequestType:
+
+ApplicationRequestType
+``````````````````````
+*This field is required.*
+
+Specifies the method by which the application request was received.
+
+- email
+- fax
+- mail
+- online
+- other
+
+.. _ApplicationType:
+
+ApplicationType
+```````````````
+*This field is required.*
+
+Specifies the type of ballot application request.
+
+- fpca
+- fwab
+- informal-request
+- state-application
+
+.. _BallotRejectionOtherType:
+
+BallotRejectionOtherType
+````````````````````````
+
+
+If :ref:`BallotRejectionType` fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected.
+
+
+
+.. _BallotRejectionType:
+
+BallotRejectionType
+```````````````````
+
+
+Specifies the reason why the ballot was rejected.
+
+- mismatch-voter-signature
+- missing-voter-signature
+- not-timely
+- postmark
+- undeliverable
+- voter-died
+- voter-unregistered
+- voided-spoiled
+- other
+
+.. _BallotReturnDate:
+
+BallotReturnDate
+````````````````
+
+
+Specifies the date the voter returned the ballot to the local or state election official.
+
+
+
+.. _BallotReturnOtherType:
+
+BallotReturnOtherType
+`````````````````````
+
+
+If :ref:`BallotReturnType` fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official.
+
+
+
+.. _BallotReturnType:
+
+BallotReturnType
+````````````````
+
+
+Specifies the method by which the voter returned the ballot to the local or state election official.
+
+- email
+- fax
+- mail
+- online
+- other
+
+.. _BallotTransmissionDate:
+
+BallotTransmissionDate
+``````````````````````
+
+
+Specifies the date the local or state election official sent the ballot to the voter.
+
+
+
+.. _BallotTransmissionOtherType:
+
+BallotTransmissionOtherType
+```````````````````````````
+
+
+If :ref:`BallotTransmissionType` fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter.
+
+
+
+.. _BallotTransmissionType:
+
+BallotTransmissionType
+``````````````````````
+
+
+Specifies the method in which the ballot was sent to the voter.
+
+- email
+- fax
+- mail
+- online
+- other
+
+.. _BallotType:
+
+BallotType
+``````````
+
+
+Specifies the type of ballot transferred to the voter.
+
+- absentee
+- fwab
+
+.. _ElectionDate:
+
+ElectionDate
+````````````
+*This field is required.*
+
+Specifies the date the election took place.
+
+
+
+.. _ElectionName:
+
+ElectionName
+````````````
+*This field is required.*
+
+Specifies the name of the election.
+
+
+
+.. _JurisdictionId:
+
+JurisdictionId
+``````````````
+*This field is required.*
+
+Specifies a unique identifier for the jurisdiction.
+
+
+
+.. _JurisdictionIdType:
+
+JurisdictionIdType
+``````````````````
+*This field is required.*
+
+Specifies the type of identifier used to identify the jurisdiction in :ref:`JurisdictionId`. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.
+
+- ocd-id
+- fips
+- local
+
+.. _JurisdictionName:
+
+JurisdictionName
+````````````````
+*This field is required.*
+
+Specifies the name of the jurisdiction in which the voter is registered.
+
+
+
+.. _VoterMailingCountry:
+
+VoterMailingCountry
+```````````````````
+
+
+Specifies what country to which the ballot was mailed.
+
+
+
+.. _VoterType:
+
+VoterType
+`````````
+
+
+Specifies whether the voter is domestic or overseas military (or, if the domestic or overseas designation is unknown, simply whether the voter is military), overseas citizen, or other.
+
+- domestic-military
+- military
+- overseas-citizen
+- overseas-military
+- other
+
+.. _WasApplicationRejected:
+
+WasApplicationRejected
+``````````````````````
+
+
+Specifies whether the application request was accepted or rejected.
+
+
+

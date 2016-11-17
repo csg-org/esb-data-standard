@@ -9,10 +9,13 @@
     "FVAP",
     "Federal Voting Assistance Program",
     "Overseas Voting Initiative",
-    "OVI"
+    "OVI",
+    "Election Administration and Voting Survey",
+    "EAVS Section B",
+    "Data Standard"
   ],
-  "version": "0.4",
-  "last_updated": "2016-09-15",
+  "version": "0.4.2",
+  "last_updated": "2016-11-16",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
     "web": "http://www.csg.org/ovi/"
@@ -36,7 +39,7 @@
 	    "name": "VoterID",
 	    "type": "string",
 	    "title": "Voter Identifier",
-	    "description": "Identifier that uniquely identifies a voter record, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze the efficacy of each transaction type for individual voters.",
+	    "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voters. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.",
 	    "constraints": {
 	      "required": true
 	    }
@@ -45,19 +48,19 @@
             "name": "ApplicationRequestOtherType",
             "type": "string",
             "title": "Other Application Request Type",
-            "description": "Specifies an alternate method by which the application request was received"
+            "description": "If ApplicationRequestType fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received."
           },
           {
             "name": "ApplicationRequestProcessedDate",
             "type": "date",
             "title": "Date Application Request Was Processed",
-            "description": "Specifies the date the request was processed by the local or state election official"
+            "description": "Specifies the date the request was processed by the local or state election official."
           },
           {
             "name": "ApplicationRequestReceivedDate",
             "type": "date",
             "title": "Application Request Received Date",
-            "description": "Specifies the date the application request was received by the local or state election official",
+            "description": "Specifies the date the application request was received by the local or state election official.",
             "constraints": {
               "required": true
             }
@@ -66,7 +69,7 @@
 	    "name": "ApplicationRequestStatusType",
             "type": "array",
             "title": "Application Request Status",
-            "description": "Specifies the current status of the application",
+            "description": "Specifies the current status of the application. Multiple values are possible.",
             "constraints": {
               "required": true,
               "enum": [
@@ -85,7 +88,7 @@
             "name": "ApplicationRequestType",
             "type": "string",
             "title": "Application Request Type",
-            "description": "Specifies the method by which the application request was received",
+            "description": "Specifies the method by which the application request was received.",
             "constraints": {
               "required": true,
               "enum": [
@@ -101,7 +104,7 @@
             "name": "ApplicationType",
             "type": "string",
             "title": "Type of Application",
-            "description": "Specifies the type of ballot application request",
+            "description": "Specifies the type of ballot application request.",
             "constraints": {
               "required": true,
               "enum": [
@@ -116,13 +119,13 @@
             "name": "BallotRejectionOtherType",
             "type": "string",
             "title": "Other Ballot Rejection Type",
-            "description": "Specifies an alternate reason why the reason the ballot was rejected"
+            "description": "If BallotRejectionType fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
           },
           {
             "name": "BallotRejectionType",
             "type": "array",
             "title": "Ballot Rejection Type",
-            "description": "Specifies the reason why the ballot was rejected",
+            "description": "Specifies the reason why the ballot was rejected.",
             "constraints": {
               "enum": [
 		"mismatch-voter-signature",
@@ -141,19 +144,19 @@
             "name": "BallotReturnDate",
             "type": "date",
             "title": "Ballot Returned Date",
-            "description": "Specifies the date the ballot was returned or received by the local or state election official"
+            "description": "Specifies the date the voter returned the ballot to the local or state election official."
           },
           {
             "name": "BallotReturnOtherType",
             "type": "string",
             "title": "Ballot Return Type",
-            "description": "Specifies an alternate method by which the ballot was returned to the local or state election official"
+            "description": "If BallotReturnType fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official."
           },
           {
             "name": "BallotReturnType",
             "type": "string",
             "title": "Ballot Return Type",
-            "description": "Specifies the method by which the ballot was returned to the local or state election official",
+            "description": "Specifies the method by which the voter returned the ballot to the local or state election official.",
             "constraints": {
               "enum": [
                 "email",
@@ -168,19 +171,19 @@
             "name": "BallotTransmissionDate",
             "type": "date",
             "title": "Ballot Transmission Date",
-            "description": "Specifies the date the ballot was sent to the voter by the local or state election official"
+            "description": "Specifies the date the local or state election official sent the ballot to the voter."
           },
           {
             "name": "BallotTransmissionOtherType",
             "type": "string",
             "title": "Other Ballot Transmission Type",
-            "description": "Specifies an alternate method in which the ballot was sent to the voter"
+            "description": "If BallotTransmissionType fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter."
           },
           {
             "name": "BallotTransmissionType",
             "type": "string",
             "title": "Ballot Transmission Type",
-            "description": "Specifies the method in which the ballot was sent to the voter",
+            "description": "Specifies the method in which the ballot was sent to the voter.",
             "constraints": {
               "enum": [
                 "email",
@@ -195,7 +198,7 @@
             "name": "BallotType",
             "type": "string",
             "title": "Ballot Type",
-            "description": "Specifies the type of ballot transferred to the voter",
+            "description": "Specifies the type of ballot transferred to the voter.",
             "constraints": {
               "enum": [
                 "absentee",
@@ -207,7 +210,7 @@
 	    "name": "ElectionDate",
 	    "type": "date",
 	    "title": "Election Date",
-	    "description": "Specifies the date the election took place",
+	    "description": "Specifies the date the election took place.",
 	    "constraints": {
 	      "required": true
 	    }
@@ -216,7 +219,7 @@
 	    "name": "ElectionName",
 	    "type": "string",
 	    "title": "Election Name",
-	    "description": "Specifies the name of the election",
+	    "description": "Specifies the name of the election.",
 	    "constraints": {
 	      "required": true
 	    }
@@ -225,7 +228,7 @@
             "name": "JurisdictionId",
             "type": "string",
             "title": "Jurisdiction Identifier",
-            "description": "Specifies a unique identifier for the jurisdiction",
+            "description": "Specifies a unique identifier for the jurisdiction.",
 	    "constraints": {
 	      "required": true
 	    }
@@ -234,7 +237,7 @@
             "name": "JurisdictionIdType",
             "type": "string",
             "title": "Jurisdiction Identifier Type",
-            "description": "Specifies the type of identifier used to identify the jurisdiction",
+            "description": "Specifies the type of identifier used to identify the jurisdiction in JurisdictionId. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.",
             "constraints": {
 	      "required": true,
               "enum": [
@@ -248,7 +251,7 @@
             "name": "JurisdictionName",
             "type": "string",
             "title": "Jurisdiction Name",
-            "description": "Specifies the name of the jurisdiction in which the voter is registered",
+            "description": "Specifies the name of the jurisdiction in which the voter is registered.",
             "constraints": {
               "required": true
             }
@@ -257,13 +260,13 @@
             "name": "VoterMailingCountry",
             "type": "string",
             "title": "Voter's Mailing Country",
-            "description": "Specifies what country to which the ballot was mailed"
+            "description": "Specifies what country to which the ballot was mailed."
           },
           {
             "name": "VoterType",
             "type": "string",
             "title": "Voter Type",
-            "description": "Specifies whether the voter is domestic or overseas military, overseas citizen, or other",
+            "description": "Specifies whether the voter is domestic or overseas military (or, if the domestic or overseas designation is unknown, simply whether the voter is military), overseas citizen, or other.",
             "constraints": {
               "enum": [
                 "domestic-military",
@@ -278,7 +281,7 @@
 	    "name": "WasApplicationRejected",
 	    "type": "boolean",
 	    "title": "Was the Application Rejected",
-	    "Description": "Specifies whether the application request was accepted or rejected"
+	    "description": "Specifies whether the application request was accepted or rejected."
 	  }
         ]
       }
