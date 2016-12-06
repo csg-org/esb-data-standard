@@ -71,7 +71,8 @@ def create_docs(fields):
                     for enum in field['constraints']['enum']:
                         enum_list.append('- {}'.format(enum))
 
-                    enumerations = '\n'.join(enum_list)
+                    enumerations = 'The value of {} must be one of the following:\n\n'.format(
+                        field['name']) + '\n'.join(enum_list)
 
             rst.write(core_template.format(
                 ref_label='.. _{}:'.format(field['name']),
