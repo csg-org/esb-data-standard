@@ -2,6 +2,8 @@
 
 ID
 ``
+**Data Type:** string
+
 *This field is required and must be unique.*
 
 Unique identifier for the transaction (i.e. not the voter). IDs should remain consistent, regardless of when an export is created.
@@ -12,6 +14,8 @@ Unique identifier for the transaction (i.e. not the voter). IDs should remain co
 
 VoterID
 ```````
+**Data Type:** string
+
 *This field is required.*
 
 Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voters. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.
@@ -22,6 +26,8 @@ Identifier that uniquely identifies a voter, but is not required to be unique wi
 
 ApplicationRequestOtherType
 ```````````````````````````
+**Data Type:** string
+
 
 
 If :ref:`ApplicationRequestType` fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received.
@@ -32,6 +38,8 @@ If :ref:`ApplicationRequestType` fails to cover all of the possible request type
 
 ApplicationRequestProcessedDate
 ```````````````````````````````
+**Data Type:** date
+
 
 
 Specifies the date the request was processed by the local or state election official.
@@ -42,6 +50,8 @@ Specifies the date the request was processed by the local or state election offi
 
 ApplicationRequestReceivedDate
 ``````````````````````````````
+**Data Type:** date
+
 *This field is required.*
 
 Specifies the date the application request was received by the local or state election official.
@@ -52,11 +62,13 @@ Specifies the date the application request was received by the local or state el
 
 ApplicationRequestStatusType
 ````````````````````````````
+**Data Type:** array
+
 *This field is required.*
 
 Specifies the current status of the application. Multiple values are possible.
 
-The value of ApplicationRequestStatusType must be one of the following:
+The value of ``ApplicationRequestStatusType`` must be one of the following:
 
 - duplicate
 - invalid
@@ -71,27 +83,33 @@ The value of ApplicationRequestStatusType must be one of the following:
 
 ApplicationRequestType
 ``````````````````````
+**Data Type:** string
+
 *This field is required.*
 
 Specifies the method by which the application request was received.
 
-The value of ApplicationRequestType must be one of the following:
+The value of ``ApplicationRequestType`` must be one of the following:
 
 - email
 - fax
+- in-person
 - mail
 - online
+- phone
 - other
 
 .. _ApplicationType:
 
 ApplicationType
 ```````````````
+**Data Type:** string
+
 *This field is required.*
 
 Specifies the type of ballot application request.
 
-The value of ApplicationType must be one of the following:
+The value of ``ApplicationType`` must be one of the following:
 
 - fpca
 - fwab
@@ -102,6 +120,8 @@ The value of ApplicationType must be one of the following:
 
 BallotRejectionOtherType
 ````````````````````````
+**Data Type:** string
+
 
 
 If :ref:`BallotRejectionType` fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected.
@@ -112,26 +132,31 @@ If :ref:`BallotRejectionType` fails to cover all of the possible ways a ballot m
 
 BallotRejectionType
 ```````````````````
+**Data Type:** array
+
 
 
 Specifies the reason why the ballot was rejected.
 
-The value of BallotRejectionType must be one of the following:
+The value of ``BallotRejectionType`` must be one of the following:
 
 - mismatch-voter-signature
 - missing-voter-signature
 - not-timely
 - postmark
 - undeliverable
-- voter-died
-- voter-unregistered
 - voided-spoiled
+- voter-died
+- voter-moved
+- voter-unregistered
 - other
 
 .. _BallotReturnDate:
 
 BallotReturnDate
 ````````````````
+**Data Type:** date
+
 
 
 Specifies the date the voter returned the ballot to the local or state election official.
@@ -142,6 +167,8 @@ Specifies the date the voter returned the ballot to the local or state election 
 
 BallotReturnOtherType
 `````````````````````
+**Data Type:** string
+
 
 
 If :ref:`BallotReturnType` fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official.
@@ -152,14 +179,17 @@ If :ref:`BallotReturnType` fails to cover all of the possible return types for a
 
 BallotReturnType
 ````````````````
+**Data Type:** string
+
 
 
 Specifies the method by which the voter returned the ballot to the local or state election official.
 
-The value of BallotReturnType must be one of the following:
+The value of ``BallotReturnType`` must be one of the following:
 
 - email
 - fax
+- in-person
 - mail
 - online
 - other
@@ -168,6 +198,8 @@ The value of BallotReturnType must be one of the following:
 
 BallotTransmissionDate
 ``````````````````````
+**Data Type:** date
+
 
 
 Specifies the date the local or state election official sent the ballot to the voter.
@@ -178,6 +210,8 @@ Specifies the date the local or state election official sent the ballot to the v
 
 BallotTransmissionOtherType
 ```````````````````````````
+**Data Type:** string
+
 
 
 If :ref:`BallotTransmissionType` fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter.
@@ -188,11 +222,13 @@ If :ref:`BallotTransmissionType` fails to cover all of the possible transmission
 
 BallotTransmissionType
 ``````````````````````
+**Data Type:** string
+
 
 
 Specifies the method in which the ballot was sent to the voter.
 
-The value of BallotTransmissionType must be one of the following:
+The value of ``BallotTransmissionType`` must be one of the following:
 
 - email
 - fax
@@ -204,11 +240,13 @@ The value of BallotTransmissionType must be one of the following:
 
 BallotType
 ``````````
+**Data Type:** string
+
 
 
 Specifies the type of ballot transferred to the voter.
 
-The value of BallotType must be one of the following:
+The value of ``BallotType`` must be one of the following:
 
 - absentee
 - fwab
@@ -217,6 +255,8 @@ The value of BallotType must be one of the following:
 
 ElectionDate
 ````````````
+**Data Type:** date
+
 *This field is required.*
 
 Specifies the date the election took place.
@@ -227,6 +267,8 @@ Specifies the date the election took place.
 
 ElectionName
 ````````````
+**Data Type:** string
+
 *This field is required.*
 
 Specifies the name of the election.
@@ -237,6 +279,8 @@ Specifies the name of the election.
 
 JurisdictionId
 ``````````````
+**Data Type:** string
+
 *This field is required.*
 
 Specifies a unique identifier for the jurisdiction.
@@ -247,11 +291,13 @@ Specifies a unique identifier for the jurisdiction.
 
 JurisdictionIdType
 ``````````````````
+**Data Type:** string
+
 *This field is required.*
 
 Specifies the type of identifier used to identify the jurisdiction in :ref:`JurisdictionId`. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.
 
-The value of JurisdictionIdType must be one of the following:
+The value of ``JurisdictionIdType`` must be one of the following:
 
 - ocd-id
 - fips
@@ -261,6 +307,8 @@ The value of JurisdictionIdType must be one of the following:
 
 JurisdictionName
 ````````````````
+**Data Type:** string
+
 *This field is required.*
 
 Specifies the name of the jurisdiction in which the voter is registered.
@@ -271,11 +319,13 @@ Specifies the name of the jurisdiction in which the voter is registered.
 
 StateName
 `````````
+**Data Type:** string
+
 *This field is required.*
 
 Specifies the name of the state in which the voter is registered.
 
-The value of StateName must be one of the following:
+The value of ``StateName`` must be one of the following:
 
 - Alabama
 - Alaska
@@ -341,6 +391,8 @@ The value of StateName must be one of the following:
 
 VoterMailingCountry
 ```````````````````
+**Data Type:** string
+
 
 
 Specifies what country to which the ballot was mailed.
@@ -351,11 +403,13 @@ Specifies what country to which the ballot was mailed.
 
 VoterType
 `````````
+**Data Type:** string
+
 
 
 Specifies whether the voter is domestic or overseas military (or, if the domestic or overseas designation is unknown, simply whether the voter is military), overseas citizen, or other.
 
-The value of VoterType must be one of the following:
+The value of ``VoterType`` must be one of the following:
 
 - domestic-military
 - military
@@ -367,6 +421,8 @@ The value of VoterType must be one of the following:
 
 WasApplicationRejected
 ``````````````````````
+**Data Type:** boolean
+
 
 
 Specifies whether the application request was accepted or rejected.

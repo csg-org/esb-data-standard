@@ -14,7 +14,7 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.5.0",
+  "version": "0.5.1",
   "last_updated": "2016-12-06",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
@@ -94,8 +94,10 @@
               "enum": [
                 "email",
                 "fax",
+		"in-person",
                 "mail",
 		"online",
+		"phone",
                 "other"
               ]
             }
@@ -133,9 +135,10 @@
                 "not-timely",
 		"postmark",
                 "undeliverable",
+		"voided-spoiled",
                 "voter-died",
+		"voter-moved",
 		"voter-unregistered",
-                "voided-spoiled",
 		"other"
               ]
             }
@@ -161,6 +164,7 @@
               "enum": [
                 "email",
                 "fax",
+		"in-person",
                 "mail",
 		"online",
                 "other"

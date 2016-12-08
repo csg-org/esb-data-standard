@@ -42,6 +42,8 @@ def create_docs(fields):
 
 {name}
 {name_header}
+{data_type}
+
 {constraints}
 
 {description}
@@ -71,13 +73,14 @@ def create_docs(fields):
                     for enum in field['constraints']['enum']:
                         enum_list.append('- {}'.format(enum))
 
-                    enumerations = 'The value of {} must be one of the following:\n\n'.format(
+                    enumerations = 'The value of ``{}`` must be one of the following:\n\n'.format(
                         field['name']) + '\n'.join(enum_list)
 
             rst.write(core_template.format(
                 ref_label='.. _{}:'.format(field['name']),
                 name=field['name'],
                 name_header='`' * len(field['name']),
+                data_type='**Data Type:** {}'.format(field['type']),
                 constraints='*{}*'.format(constraints) if constraints else '',
                 description=decorate_links(field['description'], field_names),
                 enumerations=enumerations
