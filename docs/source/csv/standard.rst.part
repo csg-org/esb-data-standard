@@ -66,12 +66,13 @@ ApplicationRequestStatusType
 
 *This field is required.*
 
-Specifies the current status of the application. Multiple values are possible.
+Specifies the current status of the application. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application, **missing-voter-signature**, meaning the voter did not sign the application, **pending**, which means the application is still being processed, **valid**, which denotes an accepted application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.
 
 The value of ``ApplicationRequestStatusType`` must be one of the following:
 
 - duplicate
 - invalid
+- mismatch-voter-signature
 - missing-ssn
 - missing-state-id-number
 - missing-voter-signature
@@ -244,11 +245,13 @@ BallotType
 
 
 
-Specifies the type of ballot transferred to the voter.
+Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct, and **fwab**, which specifies a Federal Write-In Absentee Ballot.
 
 The value of ``BallotType`` must be one of the following:
 
 - absentee
+- federal
+- full
 - fwab
 
 .. _ElectionDate:

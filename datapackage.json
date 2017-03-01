@@ -14,8 +14,8 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.5.1",
-  "last_updated": "2016-12-06",
+  "version": "0.6.0",
+  "last_updated": "2017-03-01",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
     "web": "http://www.csg.org/ovi/"
@@ -69,12 +69,13 @@
 	    "name": "ApplicationRequestStatusType",
             "type": "array",
             "title": "Application Request Status",
-            "description": "Specifies the current status of the application. Multiple values are possible.",
+            "description": "Specifies the current status of the application. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application, **missing-voter-signature**, meaning the voter did not sign the application, **pending**, which means the application is still being processed, **valid**, which denotes an accepted application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
             "constraints": {
               "required": true,
               "enum": [
 		"duplicate",
 		"invalid",
+		"mismatch-voter-signature",
                 "missing-ssn",
                 "missing-state-id-number",
                 "missing-voter-signature",
@@ -202,10 +203,12 @@
             "name": "BallotType",
             "type": "string",
             "title": "Ballot Type",
-            "description": "Specifies the type of ballot transferred to the voter.",
+            "description": "Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct, and **fwab**, which specifies a Federal Write-In Absentee Ballot.",
             "constraints": {
               "enum": [
                 "absentee",
+		"federal",
+		"full",
                 "fwab"
               ]
             }
