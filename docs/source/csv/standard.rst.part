@@ -108,13 +108,14 @@ ApplicationType
 
 *This field is required.*
 
-Specifies the type of ballot application request.
+Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; and **state-application**, which denotes a state form used for ballot requests.
 
 The value of ``ApplicationType`` must be one of the following:
 
 - fpca
 - fwab
 - informal-request
+- nvra
 - state-application
 
 .. _BallotRejectionOtherType:
@@ -245,7 +246,7 @@ BallotType
 
 
 
-Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct, and **fwab**, which specifies a Federal Write-In Absentee Ballot.
+Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct, **fwab**, which specifies a Federal Write-In Absentee Ballot, and **provisional**, which denotes a provisional ballot.
 
 The value of ``BallotType`` must be one of the following:
 
@@ -253,6 +254,7 @@ The value of ``BallotType`` must be one of the following:
 - federal
 - full
 - fwab
+- provisional
 
 .. _ElectionDate:
 

@@ -14,8 +14,8 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.6.0",
-  "last_updated": "2017-03-01",
+  "version": "0.6.1",
+  "last_updated": "2017-03-02",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
     "web": "http://www.csg.org/ovi/"
@@ -107,13 +107,14 @@
             "name": "ApplicationType",
             "type": "string",
             "title": "Type of Application",
-            "description": "Specifies the type of ballot application request.",
+            "description": "Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; and **state-application**, which denotes a state form used for ballot requests.",
             "constraints": {
               "required": true,
               "enum": [
                 "fpca",
 		"fwab",
                 "informal-request",
+		"nvra",
                 "state-application"
               ]
             }
@@ -203,13 +204,14 @@
             "name": "BallotType",
             "type": "string",
             "title": "Ballot Type",
-            "description": "Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct, and **fwab**, which specifies a Federal Write-In Absentee Ballot.",
+            "description": "Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct, **fwab**, which specifies a Federal Write-In Absentee Ballot, and **provisional**, which denotes a provisional ballot.",
             "constraints": {
               "enum": [
                 "absentee",
 		"federal",
 		"full",
-                "fwab"
+                "fwab",
+		"provisional"
               ]
             }
           },
