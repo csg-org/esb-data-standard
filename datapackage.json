@@ -14,7 +14,7 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.6.1",
+  "version": "0.6.2",
   "last_updated": "2017-03-02",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
@@ -65,6 +65,12 @@
               "required": true
             }
           },
+	  {
+	    "name": "ApplicationRequestStatusOtherType",
+	    "type": "string",
+	    "title": "Other Application Request Status Type",
+	    "description": "If ApplicationRequestStatusType fails to cover all possible types of Application Request statuses, this field will list an alternate type."
+	  },
 	  {
 	    "name": "ApplicationRequestStatusType",
             "type": "array",

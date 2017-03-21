@@ -58,6 +58,18 @@ Specifies the date the application request was received by the local or state el
 
 
 
+.. _ApplicationRequestStatusOtherType:
+
+ApplicationRequestStatusOtherType
+`````````````````````````````````
+**Data Type:** string
+
+
+
+If :ref:`ApplicationRequestStatusType` fails to cover all possible types of Application Request statuses, this field will list an alternate type.
+
+
+
 .. _ApplicationRequestStatusType:
 
 ApplicationRequestStatusType
