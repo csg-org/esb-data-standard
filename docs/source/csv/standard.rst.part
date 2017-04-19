@@ -442,7 +442,7 @@ WasApplicationRejected
 
 
 
-Specifies whether the application request was accepted or rejected.
+**Deprecated.** Specifies whether the application request was accepted or rejected.
 
 
 

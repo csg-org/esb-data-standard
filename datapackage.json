@@ -14,7 +14,7 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.6.2",
+  "version": "0.7.0",
   "last_updated": "2017-03-02",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
@@ -366,7 +366,7 @@
 	    "name": "WasApplicationRejected",
 	    "type": "boolean",
 	    "title": "Was the Application Rejected",
-	    "description": "Specifies whether the application request was accepted or rejected."
+	    "description": "**Deprecated.** Specifies whether the application request was accepted or rejected."
 	  }
         ]
       }
