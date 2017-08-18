@@ -14,7 +14,7 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.7.0",
+  "version": "0.8.0",
   "last_updated": "2017-03-02",
   "sources": [{
     "name": "CSG Overseas Voting Initiative",
@@ -95,7 +95,7 @@
             "name": "ApplicationRequestType",
             "type": "string",
             "title": "Application Request Type",
-            "description": "Specifies the method by which the application request was received.",
+            "description": "Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
               "enum": [
@@ -105,6 +105,7 @@
                 "mail",
 		"online",
 		"phone",
+		"untracked",
                 "other"
               ]
             }
@@ -113,7 +114,7 @@
             "name": "ApplicationType",
             "type": "string",
             "title": "Type of Application",
-            "description": "Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; and **state-application**, which denotes a state form used for ballot requests.",
+            "description": "Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form used for ballot requests; and **untracked**, which means the type of application is not tracked.",
             "constraints": {
               "required": true,
               "enum": [
@@ -121,7 +122,8 @@
 		"fwab",
                 "informal-request",
 		"nvra",
-                "state-application"
+                "state-application",
+		"untracked"
               ]
             }
           },
@@ -135,7 +137,7 @@
             "name": "BallotRejectionType",
             "type": "array",
             "title": "Ballot Rejection Type",
-            "description": "Specifies the reason why the ballot was rejected.",
+            "description": "Specifies the reason why the ballot was rejected. Possible values are **mismatch-voter-signature**, which denotes the signature on file did not match the signature on the returned envelope or document; **missing-voter-signature**, which signifies that the voter signature is missing on the returned documents; **not-timely**, which means the ballot was received after the required deadline; **postmark**, which signifies the ballot was postmarked after the required date; **undeliverable**, which denotes the ballot was returned as undeliverable to the address where it was sent; **untracked**, which signifies that this variable is not tracked in the system; **voided-spoiled**, which means the ballot had to be voided or spoiled either by the administration or the voter; **voter-died**, which signifies the voter died thereby impacting the ability to count the ballot (NB: this is largely dependent on state law); **voter-moved**, which signifies the voter moved from their registered address; **voter-unregistered**, which means the voter is not registered to vote; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
 		"mismatch-voter-signature",
@@ -143,6 +145,7 @@
                 "not-timely",
 		"postmark",
                 "undeliverable",
+		"untracked",
 		"voided-spoiled",
                 "voter-died",
 		"voter-moved",
@@ -167,7 +170,7 @@
             "name": "BallotReturnType",
             "type": "string",
             "title": "Ballot Return Type",
-            "description": "Specifies the method by which the voter returned the ballot to the local or state election official.",
+            "description": "Specifies the method by which the voter returned the ballot to the local or state election official. Possible values are **email**, which signifies the ballot was received via email; **fax**, which denotes the ballot was received by fax; **in-person**, which means the ballot was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the ballot); **mail**, which signifies the ballot was received via mail; **online**, which means the ballot was submitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
                 "email",
@@ -175,6 +178,7 @@
 		"in-person",
                 "mail",
 		"online",
+		"untracked",
                 "other"
               ]
             }
@@ -195,13 +199,15 @@
             "name": "BallotTransmissionType",
             "type": "string",
             "title": "Ballot Transmission Type",
-            "description": "Specifies the method in which the ballot was sent to the voter.",
+            "description": "Specifies the method in which the ballot was sent to the voter. Possible values are **email**, which signifies the ballot was transmitted via email; **fax**, which denotes the ballot was transmitted by fax; **in-person**, which means the ballot given to a person; **mail**, which signifies the ballot was transmitted via mail; **online**, which means the ballot was transmitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
                 "email",
                 "fax",
+		"in-person",
                 "mail",
 		"online",
+		"untracked",
                 "other"
               ]
             }
@@ -210,14 +216,15 @@
             "name": "BallotType",
             "type": "string",
             "title": "Ballot Type",
-            "description": "Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct, **fwab**, which specifies a Federal Write-In Absentee Ballot, and **provisional**, which denotes a provisional ballot.",
+            "description": "Specifies the type of ballot transferred to the voter. Possible values are **absentee**, which is a general catch-all for any type of absentee ballot, **federal**, which denotes the voter only received a ballot that allows voting on federal contests, **full**, which denotes a ballot with all possible contests in the voter's assigned precinct; **fwab**, which specifies a Federal Write-In Absentee Ballot, and **provisional**, which denotes a provisional ballot; and, **untracked**, which signifies that this variable is not tracked in the system.",
             "constraints": {
               "enum": [
                 "absentee",
 		"federal",
 		"full",
                 "fwab",
-		"provisional"
+		"provisional",
+		"untracked"
               ]
             }
           },
