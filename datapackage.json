@@ -1,4 +1,5 @@
 {
+  "profile": "tabular-data-package",
   "name": "esb-csv-data",
   "title": "EAVS Section B CSV Data Standard",
   "description": "Non-personally-identifiable absentee voter transactions",
@@ -14,15 +15,21 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.8.0",
+  "version": "0.8.1",
   "last_updated": "2017-03-02",
   "sources": [{
+    "title": "CSG Overseas Voting Initiative",
     "name": "CSG Overseas Voting Initiative",
     "web": "http://www.csg.org/ovi/"
   }],
   "resources": [
     {
+      "profile": "tabular-data-resource",
+      "name": "eavs_section_b_data_standard",
       "path": "esb_data.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "mediatype": "text/csv",
       "schema": {
         "fields": [
           {
@@ -375,7 +382,8 @@
 	    "title": "Was the Application Rejected",
 	    "description": "**Deprecated.** Specifies whether the application request was accepted or rejected."
 	  }
-        ]
+        ],
+	"missingValues": [""]
       }
     }
   ]
