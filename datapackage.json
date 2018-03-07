@@ -15,8 +15,8 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.8.1",
-  "last_updated": "2017-03-02",
+  "version": "0.9.0",
+  "last_updated": "2018-03-07",
   "sources": [{
     "title": "CSG Overseas Voting Initiative",
     "name": "CSG Overseas Voting Initiative",
@@ -46,7 +46,7 @@
 	    "name": "VoterID",
 	    "type": "string",
 	    "title": "Voter Identifier",
-	    "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voters. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.",
+	    "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.",
 	    "constraints": {
 	      "required": true
 	    }
@@ -58,6 +58,12 @@
             "description": "If ApplicationRequestType fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received."
           },
           {
+            "name": "ApplicationRequestPostmarkDate",
+            "type": "date",
+            "title": "Date Application Reqest Was Postmarked",
+            "description": "Specifies the date the request was postmarked. If there is any confusion as to the whether the date the application was recorded was the date on the postmark or the date the application was physically received by the election administration entity, assume postmark and use this field rather than ApplicationRequestReceivedDate."
+          },
+          {
             "name": "ApplicationRequestProcessedDate",
             "type": "date",
             "title": "Date Application Request Was Processed",
@@ -67,10 +73,7 @@
             "name": "ApplicationRequestReceivedDate",
             "type": "date",
             "title": "Application Request Received Date",
-            "description": "Specifies the date the application request was received by the local or state election official.",
-            "constraints": {
-              "required": true
-            }
+            "description": "Specifies the date the application request was received by the local or state election official. In mail-only states, this date is the most recent date the voter became an active UOCAVA voter."
           },
 	  {
 	    "name": "ApplicationRequestStatusOtherType",
@@ -144,13 +147,14 @@
             "name": "BallotRejectionType",
             "type": "array",
             "title": "Ballot Rejection Type",
-            "description": "Specifies the reason why the ballot was rejected. Possible values are **mismatch-voter-signature**, which denotes the signature on file did not match the signature on the returned envelope or document; **missing-voter-signature**, which signifies that the voter signature is missing on the returned documents; **not-timely**, which means the ballot was received after the required deadline; **postmark**, which signifies the ballot was postmarked after the required date; **undeliverable**, which denotes the ballot was returned as undeliverable to the address where it was sent; **untracked**, which signifies that this variable is not tracked in the system; **voided-spoiled**, which means the ballot had to be voided or spoiled either by the administration or the voter; **voter-died**, which signifies the voter died thereby impacting the ability to count the ballot (NB: this is largely dependent on state law); **voter-moved**, which signifies the voter moved from their registered address; **voter-unregistered**, which means the voter is not registered to vote; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "description": "Specifies the reason why the ballot was rejected. Possible values are **mismatch-voter-signature**, which denotes the signature on file did not match the signature on the returned envelope or document; **missing-voter-signature**, which signifies that the voter signature is missing on the returned documents; **not-timely**, which means the ballot was received after the required deadline; **postmark**, which signifies the ballot was postmarked after the required date; **rejected**, which signifies the ballot was rejected for an unspecified reason; **undeliverable**, which denotes the ballot was returned as undeliverable to the address where it was sent; **untracked**, which signifies that this variable is not tracked in the system; **voided-spoiled**, which means the ballot had to be voided or spoiled either by the administration or the voter; **voter-died**, which signifies the voter died thereby impacting the ability to count the ballot (NB: this is largely dependent on state law); **voter-moved**, which signifies the voter moved from their registered address; **voter-unregistered**, which means the voter is not registered to vote; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
 		"mismatch-voter-signature",
                 "missing-voter-signature",
                 "not-timely",
 		"postmark",
+		"rejected",
                 "undeliverable",
 		"untracked",
 		"voided-spoiled",
@@ -359,7 +363,7 @@
             "name": "VoterMailingCountry",
             "type": "string",
             "title": "Voter's Mailing Country",
-            "description": "Specifies what country to which the ballot was mailed."
+            "description": "Specifies what country to which the ballot was mailed. The country should be a recognized country name according to ISO 3166."
           },
           {
             "name": "VoterType",

@@ -4,7 +4,7 @@ Developed through a collaborative agreement between the Council of State Governm
 
 ## Documentation
 ### Prerequisites
-The documentation is built with [Sphinx](http://www.sphinx-doc.org/en/1.4.8/) and requires execution of a simple [python](https://www.python.org/) script.
+The documentation is built with [Sphinx](http://www.sphinx-doc.org/en/1.7/) and requires execution of a simple [python](https://www.python.org/) script.
 
 ### Build
 While this first step is optional, it's arguably easiest to create a virtual environment to keep the required libraries contained.
@@ -25,7 +25,7 @@ $ pip install -r requirements.txt
 If you've made changes to the specification, do the following:
 
 ```sh
-$ cd docs/source
+$ cd docs
 $ python datapackage_docs_parser.py
 ```
 
@@ -34,7 +34,7 @@ After executing the above (or assuming you haven't made changes), navigate to th
 ```sh
 $ make html
 $ cd build/html
-$ python -m http.server()
+$ python -m http.server
 ```
 
 Depending on your version of python (i.e. 2.7 vs 3.x), the last line could be `python -m SimpleHttpServer 8000`. Open a browser and connect to [http://localhost:8000](http://localhost:8000) and you should see the documentation.

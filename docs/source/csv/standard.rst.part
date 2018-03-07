@@ -18,7 +18,7 @@ VoterID
 
 *This field is required.*
 
-Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voters. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.
+Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.
 
 
 
@@ -31,6 +31,18 @@ ApplicationRequestOtherType
 
 
 If :ref:`ApplicationRequestType` fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received.
+
+
+
+.. _ApplicationRequestPostmarkDate:
+
+ApplicationRequestPostmarkDate
+``````````````````````````````
+**Data Type:** date
+
+
+
+Specifies the date the request was postmarked. If there is any confusion as to the whether the date the application was recorded was the date on the postmark or the date the application was physically received by the election administration entity, assume postmark and use this field rather than :ref:`ApplicationRequestReceivedDate`.
 
 
 
@@ -52,9 +64,9 @@ ApplicationRequestReceivedDate
 ``````````````````````````````
 **Data Type:** date
 
-*This field is required.*
 
-Specifies the date the application request was received by the local or state election official.
+
+Specifies the date the application request was received by the local or state election official. In mail-only states, this date is the most recent date the voter became an active UOCAVA voter.
 
 
 
@@ -152,7 +164,7 @@ BallotRejectionType
 
 
 
-Specifies the reason why the ballot was rejected. Possible values are **mismatch-voter-signature**, which denotes the signature on file did not match the signature on the returned envelope or document; **missing-voter-signature**, which signifies that the voter signature is missing on the returned documents; **not-timely**, which means the ballot was received after the required deadline; **postmark**, which signifies the ballot was postmarked after the required date; **undeliverable**, which denotes the ballot was returned as undeliverable to the address where it was sent; **untracked**, which signifies that this variable is not tracked in the system; **voided-spoiled**, which means the ballot had to be voided or spoiled either by the administration or the voter; **voter-died**, which signifies the voter died thereby impacting the ability to count the ballot (NB: this is largely dependent on state law); **voter-moved**, which signifies the voter moved from their registered address; **voter-unregistered**, which means the voter is not registered to vote; and, **other**, which is a catch-all for any values that fall outside of the other values.
+Specifies the reason why the ballot was rejected. Possible values are **mismatch-voter-signature**, which denotes the signature on file did not match the signature on the returned envelope or document; **missing-voter-signature**, which signifies that the voter signature is missing on the returned documents; **not-timely**, which means the ballot was received after the required deadline; **postmark**, which signifies the ballot was postmarked after the required date; **rejected**, which signifies the ballot was rejected for an unspecified reason; **undeliverable**, which denotes the ballot was returned as undeliverable to the address where it was sent; **untracked**, which signifies that this variable is not tracked in the system; **voided-spoiled**, which means the ballot had to be voided or spoiled either by the administration or the voter; **voter-died**, which signifies the voter died thereby impacting the ability to count the ballot (NB: this is largely dependent on state law); **voter-moved**, which signifies the voter moved from their registered address; **voter-unregistered**, which means the voter is not registered to vote; and, **other**, which is a catch-all for any values that fall outside of the other values.
 
 The value of ``BallotRejectionType`` must be one of the following:
 
@@ -160,6 +172,7 @@ The value of ``BallotRejectionType`` must be one of the following:
 - missing-voter-signature
 - not-timely
 - postmark
+- rejected
 - undeliverable
 - untracked
 - voided-spoiled
@@ -419,7 +432,7 @@ VoterMailingCountry
 
 
 
-Specifies what country to which the ballot was mailed.
+Specifies what country to which the ballot was mailed. The country should be a recognized country name according to ISO 3166.
 
 
 
