@@ -54,10 +54,10 @@
             }
           },
           {
-            "name": "ApplicationRequestOtherType",
+            "name": "ApplicationRequestOtherMethod",
             "type": "string",
-            "title": "Other Application Request Type",
-            "description": "If ApplicationRequestType fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received."
+            "title": "Other Application Request Method",
+            "description": "If ApplicationRequestMethod fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the application request was received."
           },
           {
             "name": "ApplicationRequestPostmarkDate",
@@ -104,9 +104,9 @@
             }
           },
           {
-            "name": "ApplicationRequestType",
+            "name": "ApplicationRequestMethod",
             "type": "string",
-            "title": "Application Request Type",
+            "title": "Application Request Method",
             "description": "Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
@@ -123,9 +123,9 @@
             }
           },
           {
-            "name": "ApplicationType",
+            "name": "ApplicationRequestType",
             "type": "string",
-            "title": "Type of Application",
+            "title": "Type of Application Request",
             "description": "Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form used for ballot requests; and **untracked**, which means the type of application is not tracked.",
             "constraints": {
               "required": true,

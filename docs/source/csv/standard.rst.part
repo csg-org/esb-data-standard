@@ -30,7 +30,7 @@ ApplicationRequestOtherType
 
 
 
-If :ref:`ApplicationRequestType` fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received.
+If :ref:`ApplicationRequestMethod` fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the application request was received.
 
 
 
@@ -104,9 +104,9 @@ The value of ``ApplicationRequestStatusType`` must be one of the following:
 - valid
 - other
 
-.. _ApplicationRequestType:
+.. _ApplicationRequestMethod:
 
-ApplicationRequestType
+ApplicationRequestMethod
 ``````````````````````
 **Data Type:** string
 
@@ -114,7 +114,7 @@ ApplicationRequestType
 
 Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
 
-The value of ``ApplicationRequestType`` must be one of the following:
+The value of ``ApplicationRequestMethod`` must be one of the following:
 
 - email
 - fax
@@ -125,9 +125,9 @@ The value of ``ApplicationRequestType`` must be one of the following:
 - untracked
 - other
 
-.. _ApplicationType:
+.. _ApplicationRequestType:
 
-ApplicationType
+ApplicationRequestType
 ```````````````
 **Data Type:** string
 
@@ -135,7 +135,7 @@ ApplicationType
 
 Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form used for ballot requests; and **untracked**, which means the type of application is not tracked.
 
-The value of ``ApplicationType`` must be one of the following:
+The value of ``ApplicationRequestType`` must be one of the following:
 
 - fpca
 - fwab
