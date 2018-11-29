@@ -54,6 +54,25 @@
             }
           },
           {
+            "name": "ApplicationRequestMethod",
+            "type": "string",
+            "title": "Application Request Method",
+            "description": "Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "email",
+                "fax",
+                "in-person",
+                "mail",
+                "online",
+                "phone",
+                "untracked",
+                "other"
+              ]
+            }
+          },
+          {
             "name": "ApplicationRequestOtherMethod",
             "type": "string",
             "title": "Other Application Request Method",
@@ -78,6 +97,25 @@
             "description": "Specifies the date the application request was received by the local or state election official. In mail-only states, this date is the most recent date the voter became an active UOCAVA voter."
           },
           {
+            "name": "ApplicationRequestRejectionType",
+            "type": "array",
+            "title": "Application Request Rejection Type",
+            "description": "If ApplicationRequestStatusType is **rejected** or **cured**, then specifies the reason the application was rejected. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "duplicate",
+                "invalid",
+                "mismatch-voter-signature",
+                "missing-identification",
+                "missing-ssn",
+                "missing-state-id-number",
+                "missing-voter-signature",
+                "other"
+              ]
+            }
+          },
+          {
             "name": "ApplicationRequestStatusOtherType",
             "type": "string",
             "title": "Other Application Request Status Type",
@@ -95,44 +133,6 @@
                 "cured",
                 "pending",
                 "rejected"
-              ]
-            }
-          },
-          {
-            "name": "ApplicationRequestMethod",
-            "type": "string",
-            "title": "Application Request Method",
-            "description": "Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "email",
-                "fax",
-                "in-person",
-                "mail",
-                "online",
-                "phone",
-                "untracked",
-                "other"
-              ]
-            }
-          },
-          {
-            "name": "ApplicationRequestRejectionType",
-            "type": "array",
-            "title": "Application Request Rejection Type",
-            "description": "If ApplicationRequestStatusType is **rejected** or **cured**, then specifies the reason the application was rejected. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "duplicate",
-                "invalid",
-                "mismatch-voter-signature",
-                "missing-identification",
-                "missing-ssn",
-                "missing-state-id-number",
-                "missing-voter-signature",                
-                "other"
               ]
             }
           },
