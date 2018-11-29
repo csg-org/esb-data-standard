@@ -17,11 +17,13 @@
   ],
   "version": "0.9.0",
   "last_updated": "2018-03-07",
-  "sources": [{
-    "title": "CSG Overseas Voting Initiative",
-    "name": "CSG Overseas Voting Initiative",
-    "web": "http://www.csg.org/ovi/"
-  }],
+  "sources": [
+    {
+      "title": "CSG Overseas Voting Initiative",
+      "name": "CSG Overseas Voting Initiative",
+      "web": "http://www.csg.org/ovi/"
+    }
+  ],
   "resources": [
     {
       "profile": "tabular-data-resource",
@@ -42,25 +44,25 @@
               "unique": true
             }
           },
-	  {
-	    "name": "VoterID",
-	    "type": "string",
-	    "title": "Voter Identifier",
-	    "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.",
-	    "constraints": {
-	      "required": true
-	    }
-	  },
           {
-            "name": "ApplicationRequestOtherType",
+            "name": "VoterID",
             "type": "string",
-            "title": "Other Application Request Type",
-            "description": "If ApplicationRequestType fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received."
+            "title": "Voter Identifier",
+            "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "ApplicationRequestOtherMethod",
+            "type": "string",
+            "title": "Other Application Request Method",
+            "description": "If ApplicationRequestMethod fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the application request was received."
           },
           {
             "name": "ApplicationRequestPostmarkDate",
             "type": "date",
-            "title": "Date Application Reqest Was Postmarked",
+            "title": "Date Application Request Was Postmarked",
             "description": "Specifies the date the request was postmarked. If there is any confusion as to the whether the date the application was recorded was the date on the postmark or the date the application was physically received by the election administration entity, assume postmark and use this field rather than ApplicationRequestReceivedDate."
           },
           {
@@ -75,65 +77,79 @@
             "title": "Application Request Received Date",
             "description": "Specifies the date the application request was received by the local or state election official. In mail-only states, this date is the most recent date the voter became an active UOCAVA voter."
           },
-	  {
-	    "name": "ApplicationRequestStatusOtherType",
-	    "type": "string",
-	    "title": "Other Application Request Status Type",
-	    "description": "If ApplicationRequestStatusType fails to cover all possible types of Application Request statuses, this field will list an alternate type."
-	  },
-	  {
-	    "name": "ApplicationRequestStatusType",
-            "type": "array",
+          {
+            "name": "ApplicationRequestStatusOtherType",
+            "type": "string",
+            "title": "Other Application Request Status Type",
+            "description": "If ApplicationRequestStatusType fails to cover all possible types of Application Request statuses, this field will list an alternate type."
+          },
+          {
+            "name": "ApplicationRequestStatusType",
+            "type": "string",
             "title": "Application Request Status",
-            "description": "Specifies the current status of the application. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application, **missing-voter-signature**, meaning the voter did not sign the application, **pending**, which means the application is still being processed, **valid**, which denotes an accepted application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
+            "description": "Specifies the current status of the application. Possible values are **accepted** for when the application successfully processed, **cured** which means the application was supplemented with additional information to make it valid, **pending**, which means the application is still being processed, **rejected** for when the application was not successfully processed.",
             "constraints": {
               "required": true,
               "enum": [
-		"duplicate",
-		"invalid",
-		"mismatch-voter-signature",
-                "missing-ssn",
-                "missing-state-id-number",
-                "missing-voter-signature",
-		"pending",
-		"valid",
-                "other"
+                "accepted",
+                "cured",
+                "pending",
+                "rejected"
               ]
             }
-	  },
+          },
           {
-            "name": "ApplicationRequestType",
+            "name": "ApplicationRequestMethod",
             "type": "string",
-            "title": "Application Request Type",
+            "title": "Application Request Method",
             "description": "Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
               "enum": [
                 "email",
                 "fax",
-		"in-person",
+                "in-person",
                 "mail",
-		"online",
-		"phone",
-		"untracked",
+                "online",
+                "phone",
+                "untracked",
                 "other"
               ]
             }
           },
           {
-            "name": "ApplicationType",
+            "name": "ApplicationRequestRejectionType",
+            "type": "array",
+            "title": "Application Request Rejection Type",
+            "description": "If ApplicationRequestStatusType is **rejected** or **cured**, then specifies the reason the application was rejected. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "duplicate",
+                "invalid",
+                "mismatch-voter-signature",
+                "missing-identification",
+                "missing-ssn",
+                "missing-state-id-number",
+                "missing-voter-signature",                
+                "other"
+              ]
+            }
+          },
+          {
+            "name": "ApplicationRequestType",
             "type": "string",
-            "title": "Type of Application",
+            "title": "Type of Application Request",
             "description": "Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form used for ballot requests; and **untracked**, which means the type of application is not tracked.",
             "constraints": {
               "required": true,
               "enum": [
                 "fpca",
-		"fwab",
+                "fwab",
                 "informal-request",
-		"nvra",
+                "nvra",
                 "state-application",
-		"untracked"
+                "untracked"
               ]
             }
           },
@@ -150,18 +166,18 @@
             "description": "Specifies the reason why the ballot was rejected. Possible values are **mismatch-voter-signature**, which denotes the signature on file did not match the signature on the returned envelope or document; **missing-voter-signature**, which signifies that the voter signature is missing on the returned documents; **not-timely**, which means the ballot was received after the required deadline; **postmark**, which signifies the ballot was postmarked after the required date; **rejected**, which signifies the ballot was rejected for an unspecified reason; **undeliverable**, which denotes the ballot was returned as undeliverable to the address where it was sent; **untracked**, which signifies that this variable is not tracked in the system; **voided-spoiled**, which means the ballot had to be voided or spoiled either by the administration or the voter; **voter-died**, which signifies the voter died thereby impacting the ability to count the ballot (NB: this is largely dependent on state law); **voter-moved**, which signifies the voter moved from their registered address; **voter-unregistered**, which means the voter is not registered to vote; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
-		"mismatch-voter-signature",
+                "mismatch-voter-signature",
                 "missing-voter-signature",
                 "not-timely",
-		"postmark",
-		"rejected",
+                "postmark",
+                "rejected",
                 "undeliverable",
-		"untracked",
-		"voided-spoiled",
+                "untracked",
+                "voided-spoiled",
                 "voter-died",
-		"voter-moved",
-		"voter-unregistered",
-		"other"
+                "voter-moved",
+                "voter-unregistered",
+                "other"
               ]
             }
           },
@@ -186,10 +202,10 @@
               "enum": [
                 "email",
                 "fax",
-		"in-person",
+                "in-person",
                 "mail",
-		"online",
-		"untracked",
+                "online",
+                "untracked",
                 "other"
               ]
             }
@@ -215,10 +231,10 @@
               "enum": [
                 "email",
                 "fax",
-		"in-person",
+                "in-person",
                 "mail",
-		"online",
-		"untracked",
+                "online",
+                "untracked",
                 "other"
               ]
             }
@@ -231,40 +247,40 @@
             "constraints": {
               "enum": [
                 "absentee",
-		"federal",
-		"full",
+                "federal",
+                "full",
                 "fwab",
-		"provisional",
-		"untracked"
+                "provisional",
+                "untracked"
               ]
             }
           },
-	  {
-	    "name": "ElectionDate",
-	    "type": "date",
-	    "title": "Election Date",
-	    "description": "Specifies the date the election took place.",
-	    "constraints": {
-	      "required": true
-	    }
-	  },
-	  {
-	    "name": "ElectionName",
-	    "type": "string",
-	    "title": "Election Name",
-	    "description": "Specifies the name of the election.",
-	    "constraints": {
-	      "required": true
-	    }
-	  },
+          {
+            "name": "ElectionDate",
+            "type": "date",
+            "title": "Election Date",
+            "description": "Specifies the date the election took place.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "ElectionName",
+            "type": "string",
+            "title": "Election Name",
+            "description": "Specifies the name of the election.",
+            "constraints": {
+              "required": true
+            }
+          },
           {
             "name": "JurisdictionId",
             "type": "string",
             "title": "Jurisdiction Identifier",
             "description": "Specifies a unique identifier for the jurisdiction.",
-	    "constraints": {
-	      "required": true
-	    }
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "JurisdictionIdType",
@@ -272,7 +288,7 @@
             "title": "Jurisdiction Identifier Type",
             "description": "Specifies the type of identifier used to identify the jurisdiction in JurisdictionId. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.",
             "constraints": {
-	      "required": true,
+              "required": true,
               "enum": [
                 "ocd-id",
                 "fips",
@@ -289,76 +305,76 @@
               "required": true
             }
           },
-	  {
-	    "name": "StateName",
-	    "type": "string",
-	    "title": "State Name",
-	    "description": "Specifies the name of the state in which the voter is registered.",
-	    "constraints": {
-	      "required": true,
-	      "enum": [
-		"Alabama",
-		"Alaska",
-		"American Samoa",
-		"Arizona",
-		"Arkansas",
-		"California",
-		"Colorado",
-		"Connecticut",
-		"Delaware",
-		"District Of Columbia",
-		"Federated States Of Micronesia",
-		"Florida",
-		"Georgia",
-		"Guam",
-		"Hawaii",
-		"Idaho",
-		"Illinois",
-		"Indiana",
-		"Iowa",
-		"Kansas",
-		"Kentucky",
-		"Louisiana",
-		"Maine",
-		"Marshall Islands",
-		"Maryland",
-		"Massachusetts",
-		"Michigan",
-		"Minnesota",
-		"Mississippi",
-		"Missouri",
-		"Montana",
-		"Nebraska",
-		"Nevada",
-		"New Hampshire",
-		"New Jersey",
-		"New Mexico",
-		"New York",
-		"North Carolina",
-		"North Dakota",
-		"Northern Mariana Islands",
-		"Ohio",
-		"Oklahoma",
-		"Oregon",
-		"Palau",
-		"Pennsylvania",
-		"Puerto Rico",
-		"Rhode Island",
-		"South Carolina",
-		"South Dakota",
-		"Tennessee",
-		"Texas",
-		"Utah",
-		"Vermont",
-		"Virgin Islands",
-		"Virginia",
-		"Washington",
-		"West Virginia",
-		"Wisconsin",
-		"Wyoming"
-	      ]
-	    }
-	  },
+          {
+            "name": "StateName",
+            "type": "string",
+            "title": "State Name",
+            "description": "Specifies the name of the state in which the voter is registered.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Alabama",
+                "Alaska",
+                "American Samoa",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "District Of Columbia",
+                "Federated States Of Micronesia",
+                "Florida",
+                "Georgia",
+                "Guam",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Marshall Islands",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Northern Mariana Islands",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Palau",
+                "Pennsylvania",
+                "Puerto Rico",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virgin Islands",
+                "Virginia",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming"
+              ]
+            }
+          },
           {
             "name": "VoterMailingCountry",
             "type": "string",
@@ -373,21 +389,23 @@
             "constraints": {
               "enum": [
                 "domestic-military",
-		"military",
+                "military",
                 "overseas-citizen",
                 "overseas-military",
                 "other"
               ]
             }
           },
-	  {
-	    "name": "WasApplicationRejected",
-	    "type": "boolean",
-	    "title": "Was the Application Rejected",
-	    "description": "**Deprecated.** Specifies whether the application request was accepted or rejected."
-	  }
+          {
+            "name": "WasApplicationRejected",
+            "type": "boolean",
+            "title": "Was the Application Rejected",
+            "description": "**Deprecated.** Specifies whether the application request was accepted or rejected."
+          }
         ],
-	"missingValues": [""]
+        "missingValues": [
+          ""
+        ]
       }
     }
   ]

@@ -22,15 +22,15 @@ Identifier that uniquely identifies a voter, but is not required to be unique wi
 
 
 
-.. _ApplicationRequestOtherType:
+.. _ApplicationRequestOtherMethod:
 
-ApplicationRequestOtherType
-```````````````````````````
+ApplicationRequestOtherMethod
+`````````````````````````````
 **Data Type:** string
 
 
 
-If :ref:`ApplicationRequestType` fails to cover all of the possible request types for a particular voter transaction, this field specifies an alternate method by which the application request was received.
+If :ref:`ApplicationRequestMethod` fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the application request was received.
 
 
 
@@ -86,35 +86,30 @@ If :ref:`ApplicationRequestStatusType` fails to cover all possible types of Appl
 
 ApplicationRequestStatusType
 ````````````````````````````
-**Data Type:** array
+**Data Type:** string
 
 *This field is required.*
 
-Specifies the current status of the application. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application, **missing-voter-signature**, meaning the voter did not sign the application, **pending**, which means the application is still being processed, **valid**, which denotes an accepted application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.
+Specifies the current status of the application. Possible values are **accepted** for when the application successfully processed, **cured** which means the application was supplemented with additional information to make it valid, **pending**, which means the application is still being processed, **rejected** for when the application was not successfully processed.
 
 The value of ``ApplicationRequestStatusType`` must be one of the following:
 
-- duplicate
-- invalid
-- mismatch-voter-signature
-- missing-ssn
-- missing-state-id-number
-- missing-voter-signature
+- accepted
+- cured
 - pending
-- valid
-- other
+- rejected
 
-.. _ApplicationRequestType:
+.. _ApplicationRequestMethod:
 
-ApplicationRequestType
-``````````````````````
+ApplicationRequestMethod
+````````````````````````
 **Data Type:** string
 
 *This field is required.*
 
 Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
 
-The value of ``ApplicationRequestType`` must be one of the following:
+The value of ``ApplicationRequestMethod`` must be one of the following:
 
 - email
 - fax
@@ -125,17 +120,38 @@ The value of ``ApplicationRequestType`` must be one of the following:
 - untracked
 - other
 
-.. _ApplicationType:
+.. _ApplicationRequestRejectionType:
 
-ApplicationType
-```````````````
+ApplicationRequestRejectionType
+```````````````````````````````
+**Data Type:** array
+
+*This field is required.*
+
+If :ref:`ApplicationRequestStatusType` is **rejected** or **cured**, then specifies the reason the application was rejected. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.
+
+The value of ``ApplicationRequestRejectionType`` must be one of the following:
+
+- duplicate
+- invalid
+- mismatch-voter-signature
+- missing-identification
+- missing-ssn
+- missing-state-id-number
+- missing-voter-signature
+- other
+
+.. _ApplicationRequestType:
+
+ApplicationRequestType
+``````````````````````
 **Data Type:** string
 
 *This field is required.*
 
 Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form used for ballot requests; and **untracked**, which means the type of application is not tracked.
 
-The value of ``ApplicationType`` must be one of the following:
+The value of ``ApplicationRequestType`` must be one of the following:
 
 - fpca
 - fwab
