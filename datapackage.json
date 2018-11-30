@@ -116,10 +116,10 @@
             }
           },
           {
-            "name": "ApplicationRequestStatusOtherType",
+            "name": "ApplicationRequestRejectionOtherType",
             "type": "string",
-            "title": "Other Application Request Status Type",
-            "description": "If ApplicationRequestStatusType fails to cover all possible types of Application Request statuses, this field will list an alternate type."
+            "title": "Other Application Rejection Status Type",
+            "description": "If ApplicationRequestRejectionType fails to cover all possible types of Application Rejection reasons, this field will list an alternate type."
           },
           {
             "name": "ApplicationRequestStatusType",

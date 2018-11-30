@@ -112,15 +112,15 @@ The value of ``ApplicationRequestRejectionType`` must be one of the following:
 - missing-voter-signature
 - other
 
-.. _ApplicationRequestStatusOtherType:
+.. _ApplicationRequestRejectionOtherType:
 
-ApplicationRequestStatusOtherType
-`````````````````````````````````
+ApplicationRequestRejectionOtherType
+````````````````````````````````````
 **Data Type:** string
 
 
 
-If :ref:`ApplicationRequestStatusType` fails to cover all possible types of Application Request statuses, this field will list an alternate type.
+If :ref:`ApplicationRequestRejectionType` fails to cover all possible types of Application Rejection reasons, this field will list an alternate type.
 
 
 
