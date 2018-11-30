@@ -132,7 +132,7 @@ ApplicationRequestStatusType
 
 *This field is required.*
 
-Specifies the current status of the application. Possible values are **accepted** for when the application successfully processed, **cured** which means the application was supplemented with additional information to make it valid, **pending**, which means the application is still being processed, **rejected** for when the application was not successfully processed.
+Specifies the current status of the application. Possible values are **accepted**, which denotes that the application was successfully processed; **cured** which means the application was supplemented with additional information to make it valid; **pending**, which signifies that application is still being processed; **rejected** which means the application was not successfully processed.
 
 The value of ``ApplicationRequestStatusType`` must be one of the following:
 
