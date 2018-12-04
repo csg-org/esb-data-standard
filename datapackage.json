@@ -154,12 +154,6 @@
             }
           },
           {
-            "name": "BallotRejectionOtherType",
-            "type": "string",
-            "title": "Other Ballot Rejection Type",
-            "description": "If BallotRejectionType fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
-          },
-          {
             "name": "BallotRejectionType",
             "type": "array",
             "title": "Ballot Rejection Type",
@@ -182,16 +176,16 @@
             }
           },
           {
+            "name": "BallotRejectionOtherType",
+            "type": "string",
+            "title": "Other Ballot Rejection Type",
+            "description": "If BallotRejectionType fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
+          },
+          {
             "name": "BallotReturnDate",
             "type": "date",
             "title": "Ballot Returned Date",
             "description": "Specifies the date the voter returned the ballot to the local or state election official."
-          },
-          {
-            "name": "BallotReturnOtherType",
-            "type": "string",
-            "title": "Ballot Return Type",
-            "description": "If BallotReturnType fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official."
           },
           {
             "name": "BallotReturnType",
@@ -211,16 +205,16 @@
             }
           },
           {
+            "name": "BallotReturnOtherType",
+            "type": "string",
+            "title": "Ballot Return Type",
+            "description": "If BallotReturnType fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official."
+          },
+          {
             "name": "BallotTransmissionDate",
             "type": "date",
             "title": "Ballot Transmission Date",
             "description": "Specifies the date the local or state election official sent the ballot to the voter."
-          },
-          {
-            "name": "BallotTransmissionOtherType",
-            "type": "string",
-            "title": "Other Ballot Transmission Type",
-            "description": "If BallotTransmissionType fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter."
           },
           {
             "name": "BallotTransmissionType",
@@ -238,6 +232,12 @@
                 "other"
               ]
             }
+          },
+          {
+            "name": "BallotTransmissionOtherType",
+            "type": "string",
+            "title": "Other Ballot Transmission Type",
+            "description": "If BallotTransmissionType fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter."
           },
           {
             "name": "BallotType",
