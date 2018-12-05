@@ -391,8 +391,7 @@
                 "domestic-military",
                 "military",
                 "overseas-citizen",
-                "overseas-military",
-                "other"
+                "overseas-military"
               ]
             }
           },
