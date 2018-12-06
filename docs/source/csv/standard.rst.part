@@ -22,6 +22,27 @@ Identifier that uniquely identifies a voter, but is not required to be unique wi
 
 
 
+.. _ApplicationRequestMethod:
+
+ApplicationRequestMethod
+````````````````````````
+**Data Type:** string
+
+*This field is required.*
+
+Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
+
+The value of ``ApplicationRequestMethod`` must be one of the following:
+
+- email
+- fax
+- in-person
+- mail
+- online
+- phone
+- untracked
+- other
+
 .. _ApplicationRequestOtherMethod:
 
 ApplicationRequestOtherMethod
@@ -70,56 +91,6 @@ Specifies the date the application request was received by the local or state el
 
 
 
-.. _ApplicationRequestStatusOtherType:
-
-ApplicationRequestStatusOtherType
-`````````````````````````````````
-**Data Type:** string
-
-
-
-If :ref:`ApplicationRequestStatusType` fails to cover all possible types of Application Request statuses, this field will list an alternate type.
-
-
-
-.. _ApplicationRequestStatusType:
-
-ApplicationRequestStatusType
-````````````````````````````
-**Data Type:** string
-
-*This field is required.*
-
-Specifies the current status of the application. Possible values are **accepted** for when the application successfully processed, **cured** which means the application was supplemented with additional information to make it valid, **pending**, which means the application is still being processed, **rejected** for when the application was not successfully processed.
-
-The value of ``ApplicationRequestStatusType`` must be one of the following:
-
-- accepted
-- cured
-- pending
-- rejected
-
-.. _ApplicationRequestMethod:
-
-ApplicationRequestMethod
-````````````````````````
-**Data Type:** string
-
-*This field is required.*
-
-Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
-
-The value of ``ApplicationRequestMethod`` must be one of the following:
-
-- email
-- fax
-- in-person
-- mail
-- online
-- phone
-- untracked
-- other
-
 .. _ApplicationRequestRejectionType:
 
 ApplicationRequestRejectionType
@@ -141,6 +112,35 @@ The value of ``ApplicationRequestRejectionType`` must be one of the following:
 - missing-voter-signature
 - other
 
+.. _ApplicationRequestRejectionOtherType:
+
+ApplicationRequestRejectionOtherType
+````````````````````````````````````
+**Data Type:** string
+
+
+
+If :ref:`ApplicationRequestRejectionType` fails to cover all possible types of Application Rejection reasons, this field will list an alternate type.
+
+
+
+.. _ApplicationRequestStatusType:
+
+ApplicationRequestStatusType
+````````````````````````````
+**Data Type:** string
+
+*This field is required.*
+
+Specifies the current status of the application. Possible values are **accepted**, which denotes that the application was successfully processed; **cured** which means the application was supplemented with additional information to make it valid; **pending**, which signifies that application is still being processed; **rejected** which means the application was not successfully processed.
+
+The value of ``ApplicationRequestStatusType`` must be one of the following:
+
+- accepted
+- cured
+- pending
+- rejected
+
 .. _ApplicationRequestType:
 
 ApplicationRequestType
@@ -159,18 +159,6 @@ The value of ``ApplicationRequestType`` must be one of the following:
 - nvra
 - state-application
 - untracked
-
-.. _BallotRejectionOtherType:
-
-BallotRejectionOtherType
-````````````````````````
-**Data Type:** string
-
-
-
-If :ref:`BallotRejectionType` fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected.
-
-
 
 .. _BallotRejectionType:
 
@@ -197,6 +185,18 @@ The value of ``BallotRejectionType`` must be one of the following:
 - voter-unregistered
 - other
 
+.. _BallotRejectionOtherType:
+
+BallotRejectionOtherType
+````````````````````````
+**Data Type:** string
+
+
+
+If :ref:`BallotRejectionType` fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected.
+
+
+
 .. _BallotReturnDate:
 
 BallotReturnDate
@@ -206,18 +206,6 @@ BallotReturnDate
 
 
 Specifies the date the voter returned the ballot to the local or state election official.
-
-
-
-.. _BallotReturnOtherType:
-
-BallotReturnOtherType
-`````````````````````
-**Data Type:** string
-
-
-
-If :ref:`BallotReturnType` fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official.
 
 
 
@@ -241,6 +229,18 @@ The value of ``BallotReturnType`` must be one of the following:
 - untracked
 - other
 
+.. _BallotReturnOtherType:
+
+BallotReturnOtherType
+`````````````````````
+**Data Type:** string
+
+
+
+If :ref:`BallotReturnType` fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official.
+
+
+
 .. _BallotTransmissionDate:
 
 BallotTransmissionDate
@@ -250,18 +250,6 @@ BallotTransmissionDate
 
 
 Specifies the date the local or state election official sent the ballot to the voter.
-
-
-
-.. _BallotTransmissionOtherType:
-
-BallotTransmissionOtherType
-```````````````````````````
-**Data Type:** string
-
-
-
-If :ref:`BallotTransmissionType` fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter.
 
 
 
@@ -284,6 +272,18 @@ The value of ``BallotTransmissionType`` must be one of the following:
 - online
 - untracked
 - other
+
+.. _BallotTransmissionOtherType:
+
+BallotTransmissionOtherType
+```````````````````````````
+**Data Type:** string
+
+
+
+If :ref:`BallotTransmissionType` fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter.
+
+
 
 .. _BallotType:
 
