@@ -1,8 +1,34 @@
 ESB File Structure
 ==================
 
-CSV files must be comma-delimited, UTF-8 (with BOM ommitted) .txt files, named
+The CSV file must be comma-delimited, UTF-8 (with BOM ommitted) .csv files, named
 according to the specification.
+
+Header Row
+----------
+
+- The CSV file must include a header row, containing a comma delimited list of
+all data fields. NB: All data fields must be included in the header row, even
+if those fields are never used. 
+- All fields names must be in the same casing they appear in the CSV documentation
+, e.g. ``BallotReturnDate`` is acceptable, but ``ballotreturndate`` is not. 
+-  All fields must be emitted in the order they appear in the `CSV documentation`_
+
+Control Codes
+-------------
+
+CSV files must be free of control codes, except for newlines, which should 
+follow UNIX syntax, i.e. ``\n``. 
+
+Missing Values
+--------------
+
+If a data point specified by a field is unavailible, place the value ``na`` in
+that field. Note that:
+
+- ``na`` should not be used in fields where a value is not expected, such as an 
+``OtherType``, when the base field is not set to ``other``
+- ``na`` must not be used in required fields
 
 Data Types
 ----------
@@ -20,10 +46,13 @@ An ``array`` is used to store multiple values in a single field.
 ::
     [""first-value"",""second-value""]
 
+NB: Even if a single value is to be emitted, it still must be surrounded by 
+brackets.
+
 boolean
 ^^^^^^^
 
-A `boolean`_ represents a true or false value. Possible values are **true** or 
+A ``boolean`` represents a true or false value. Possible values are **true** or 
 **false**.
 
 date
@@ -37,4 +66,5 @@ string
 
 A string is a sequence of characters. Most fields in the ESB Data Standard are
 strings. Be sure to read the documentation for each string field, as some
-fields only allow values that are specified in an enumerated list.
+fields only allow values that are specified in an enumerated list. String fields
+should be free of leading or training whitespace.
