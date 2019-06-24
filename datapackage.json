@@ -385,7 +385,7 @@
             "name": "VoterType",
             "type": "string",
             "title": "Voter Type",
-            "description": "Specifies whether the voter falls into one of the following designations.",
+            "description": "Specifies whether the voter is domestic or overseas military (or simply "military" if the designation is unknown), a spouse or dependent of a member of the military, or other if the type of voter falls outside the previous designations.",
             "constraints": {
               "enum": [
                 "domestic-military",
