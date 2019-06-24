@@ -15,7 +15,7 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.10.0",
+  "version": "0.11.0",
   "last_updated": "2018-12-04",
   "sources": [
     {
@@ -385,13 +385,17 @@
             "name": "VoterType",
             "type": "string",
             "title": "Voter Type",
-            "description": "Specifies whether the voter is domestic or overseas military (or, if the domestic or overseas designation is unknown, simply whether the voter is military), overseas citizen, or other.",
+            "description": "Specifies whether the voter is domestic or overseas military (or simply "military" if the designation is unknown), a spouse or dependent of a member of the military, or other if the type of voter falls outside the previous designations.",
             "constraints": {
               "enum": [
                 "domestic-military",
+                "domestic-military-spouse-dependent",
                 "military",
+                "military-spouse-dependent",
                 "overseas-citizen",
-                "overseas-military"
+                "overseas-military",
+                "overseas-military-spouse-dependent",
+                "other"
               ]
             }
           },
