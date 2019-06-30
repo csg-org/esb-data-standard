@@ -18,6 +18,7 @@ administrative process.
 .. toctree::
    :caption: Table of Contents
    :name: mastertoc
-   :maxdepth: 2
+   :maxdepth: 3
 
    csv/index
+   csv/file_structure

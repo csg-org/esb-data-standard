@@ -1,5 +1,11 @@
+ESB Formatting
+==============
+
+.. contents::
+   :local:
+
 ESB File Structure
-==================
+------------------
 
 The CSV file must be comma-delimited, UTF-8 (with BOM ommitted) .csv files, named
 according to the specification.
@@ -38,8 +44,8 @@ array
 
 An ``array`` is used to store multiple values in a single field.
 
-.. code-block:: 
-::
+.. code-block:: text
+
     [""first-value"",""second-value""]
 
 NB: Even if a single value is to be emitted, it still must be surrounded by 
@@ -64,3 +70,6 @@ A ``string`` is a sequence of characters. Most fields in the ESB Data Standard a
 strings. Be sure to read the documentation for each ``string`` field, as some
 fields only allow values that are specified in an enumerated list. String fields
 should be free of leading or training whitespace.
+
+.. _CSV documentation: index.html
+.. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601
