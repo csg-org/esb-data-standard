@@ -8,19 +8,21 @@ ESB File Structure
 ------------------
 
 The CSV file must be comma-delimited, UTF-8 (with BOM ommitted) .csv files, named
-according to the specification.
+according to the `CSV documentation`_.
 
 Header Row
 ----------
 
+The first line of the file, or header row, must conform to the following:
+
 - The CSV file must include a header row, containing a comma delimited list of all data fields. NB: All data fields must be included in the header row, even if those fields are never used.
-- All fields names must be in the same casing they appear in the `CSV documentation`_, e.g. ``BallotReturnDate`` is acceptable, but ``ballotreturndate`` is not.
+- All fields names must be in the same letter casing as they appear in the `CSV documentation`_, e.g. ``BallotReturnDate`` is acceptable, but ``ballotreturndate`` is not.
 - All fields must be emitted in the order they appear in the `CSV documentation`_.
 
-Control Codes
--------------
+Control Characters
+------------------
 
-The CSV file must be free of control codes, except for newlines, which should 
+The CSV file must be free of control characters, except for newlines, which should 
 follow UNIX syntax, i.e. ``\n``. 
 
 Missing Values
@@ -35,7 +37,7 @@ that field. Note that:
 Data Types
 ----------
 
-Each ``field`` belongs to a particular data type. These data types constraint
+Each ``field`` belongs to a particular data type. These data types constrain
 the allowed values for a particular field. For example, a field of type ``date``
 must follow the conventions of a `ISO 8601`_. 
 
@@ -54,8 +56,8 @@ brackets.
 boolean
 ^^^^^^^
 
-A ``boolean`` represents a true or false value. Possible values are **true** or 
-**false**.
+A ``boolean`` represents a true or false value. Possible values are ``true`` or 
+``false``.
 
 date
 ^^^^
