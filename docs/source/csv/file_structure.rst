@@ -15,7 +15,7 @@ Header Row
 
 The first line of the file, or header row, must conform to the following:
 
-- The CSV file must include a header row, containing a comma delimited list of all data fields. NB: All data fields must be included in the header row, even if those fields are never used.
+- The CSV file must include a header row containing a comma-delimited list of all data fields. NB: All data fields must be included in the header row, even if those fields are never used.
 - All fields names must be in the same letter casing as they appear in the `CSV documentation`_, e.g. ``BallotReturnDate`` is acceptable, but ``ballotreturndate`` is not.
 - All fields must be emitted in the order they appear in the `CSV documentation`_.
 
