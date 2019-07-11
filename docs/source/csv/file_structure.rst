@@ -7,7 +7,7 @@ ESB Formatting
 ESB File Structure
 ------------------
 
-The CSV file must be comma-delimited, UTF-8 (with BOM ommitted) .csv files, named
+The CSV file must be comma-delimited, UTF-8 (with BOM omitted) .csv files, named
 according to the `CSV documentation`_.
 
 Header Row
