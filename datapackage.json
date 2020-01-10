@@ -48,7 +48,7 @@
             "name": "VoterID",
             "type": "string",
             "title": "Voter Identifier",
-            "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter.",
+            "description": "Identifier that uniquely identifies a voter but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter.",
             "constraints": {
               "required": true
             }
@@ -57,7 +57,7 @@
             "name": "VoterActivityMethod",
             "type": "string",
             "title": "Voter Activity Method",
-            "description": "Specifies the method by which the UOCAVA voter activity was triggered. Possible values are **email**; **fax**; **in-person**, which means the activity was triggered by a person; **mail**; **online**, which means the trigger was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "description": "Specifies the method by which the UOCAVA voter activity was triggered. Possible values are **email**; **fax**; **in-person**, which means the activity was triggered by a person; **mail**; **online**, which means the trigger was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
               "enum": [
@@ -88,7 +88,7 @@
             "name": "VoterActivityStatusRejectionType",
             "type": "array",
             "title": "Voter Activity Status Rejection Type",
-            "description": "If ApplicationRequestStatusType is **rejected**, then VoterActivityStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
+            "description": "If VoterActivityStatusType is **rejected**, then VoterActivityStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
             "constraints": {
               "required": false,
               "enum": [
@@ -113,7 +113,7 @@
             "name": "VoterActivityStatusType",
             "type": "string",
             "title": "Voter Activity Status",
-            "description": "Specifies the current status of the UOCAVA voter activity. Possible values are **accepted**, which denotes that the voter activity was successfully processed; **pending**, which signifies that voter activity is still being processed; **rejected** which means the voter activity was not successfully processed.",
+            "description": "Specifies the current status of the UOCAVA voter activity. Possible values are **accepted**, which denotes that the voter activity was successfully processed; **pending**, which signifies that voter activity is still being processed; **rejected**, which means the voter activity was not successfully processed.",
             "constraints": {
               "required": true,
               "enum": [
@@ -166,7 +166,7 @@
             "name": "BallotRejectionOtherType",
             "type": "string",
             "title": "Other Ballot Rejection Type",
-            "description": "If BallotRejectionType fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
+            "description": "If BallotRejectionType fails to cover all the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
           },
           {
             "name": "BallotReturnDate",
@@ -372,7 +372,7 @@
             "name": "VoterType",
             "type": "string",
             "title": "Voter Type",
-            "description": "Specifies whether the voter is domestic or overseas military (or simply "military" if the designation is unknown), a spouse or dependent of a member of the military, or other if the type of voter falls outside the previous designations.",
+            "description": "Specifies whether the voter is domestic or overseas military (or simply military if the designation is unknown), a spouse or dependent of a member of the military, or other if the type of voter falls outside the previous designations.",
             "constraints": {
               "enum": [
                 "domestic-military",
