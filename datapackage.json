@@ -84,6 +84,20 @@
             "title": "Date of Voter Activity",
             "description": "Specifies the date the activity was processed by the local or state election official."
           },
+                {
+                  "name": "VoterActivityStatusType",
+                  "type": "string",
+                  "title": "Voter Activity Status",
+                  "description": "Specifies the current status of the UOCAVA voter activity. Possible values are **accepted**, which denotes that the voter activity was successfully processed; **pending**, which signifies that voter activity is still being processed; **rejected**, which means the voter activity was not successfully processed.",
+                  "constraints": {
+                    "required": true,
+                    "enum": [
+                      "accepted",
+                      "pending",
+                      "rejected"
+                    ]
+                  }
+                },
           {
             "name": "VoterActivityStatusRejectionType",
             "type": "array",
@@ -108,20 +122,6 @@
             "type": "string",
             "title": "Other Activity Rejection Status Type",
             "description": "If VoterActivityStatusRejectionType fails to cover all possible types of Voter Activity Rejection reasons, this field will list an alternate type."
-          },
-          {
-            "name": "VoterActivityStatusType",
-            "type": "string",
-            "title": "Voter Activity Status",
-            "description": "Specifies the current status of the UOCAVA voter activity. Possible values are **accepted**, which denotes that the voter activity was successfully processed; **pending**, which signifies that voter activity is still being processed; **rejected**, which means the voter activity was not successfully processed.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "accepted",
-                "pending",
-                "rejected"
-              ]
-            }
           },
           {
             "name": "VoterActivityType",
