@@ -273,13 +273,13 @@
             "name": "JurisdictionIdType",
             "type": "string",
             "title": "Jurisdiction Identifier Type",
-            "description": "Specifies the type of identifier used to identify the jurisdiction in JurisdictionId. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.",
+            "description": "Specifies the type of identifier used to identify the jurisdiction in JurisdictionId. Possible values are **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, **local**, which dictates the jurisdiction created the identifier, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.",
             "constraints": {
               "required": true,
               "enum": [
-                "ocd-id",
                 "fips",
-                "local"
+                "local",
+                "ocd-id"
               ]
             }
           },
