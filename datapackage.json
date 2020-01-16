@@ -35,17 +35,17 @@
       "schema": {
         "fields": [
           {
-            "name": "ID",
+            "name": "Id",
             "type": "string",
             "title": "Identifier",
-            "description": "Unique identifier for the transaction (i.e. not the voter). IDs should remain consistent, regardless of when an export is created.",
+            "description": "Unique identifier for the transaction (i.e. not the voter). Ids should remain consistent, regardless of when an export is created.",
             "constraints": {
               "required": true,
               "unique": true
             }
           },
           {
-            "name": "VoterID",
+            "name": "VoterId",
             "type": "string",
             "title": "Voter Identifier",
             "description": "Identifier that uniquely identifies a voter but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter.",
@@ -261,7 +261,7 @@
             }
           },
           {
-            "name": "JurisdictionID",
+            "name": "JurisdictionId",
             "type": "string",
             "title": "Jurisdiction Identifier",
             "description": "Specifies a unique identifier for the jurisdiction.",
@@ -270,7 +270,7 @@
             }
           },
           {
-            "name": "JurisdictionIDType",
+            "name": "JurisdictionIdType",
             "type": "string",
             "title": "Jurisdiction Identifier Type",
             "description": "Specifies the type of identifier used to identify the jurisdiction in JurisdictionId. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.",
