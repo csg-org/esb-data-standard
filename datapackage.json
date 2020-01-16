@@ -54,10 +54,10 @@
             }
           },
           {
-            "name": "VoterActivityMethod",
+            "name": "RequestMethod",
             "type": "string",
-            "title": "Voter Activity Method",
-            "description": "Specifies the method by which the UOCAVA voter activity was triggered. Possible values are **email**; **fax**; **in-person**, which means the activity was triggered by a person; **mail**; **online**, which means the trigger was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "title": "Voter Request Method",
+            "description": "Specifies the method by which the UOCAVA request was triggered. Possible values are **email**; **fax**; **in-person**, which means the request was triggered by a person; **mail**; **online**, which means the request was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
               "enum": [
@@ -73,36 +73,36 @@
             }
           },
           {
-            "name": "VoterActivityOtherMethod",
+            "name": "RequestOtherMethod",
             "type": "string",
-            "title": "Other Voter Activity Method",
-            "description": "If VoterActivityMethod fails to cover all of the possible voter activity methods for a particular voter transaction, this field specifies an alternate method by which the voter activity was received."
+            "title": "Other Request Method",
+            "description": "If RequestMethod fails to cover all of the possible requests methods for a particular voter transaction, this field specifies an alternate method by which the request was received."
           },
           {
-            "name": "VoterActivityDate",
+            "name": "RequestDate",
             "type": "date",
-            "title": "Date of Voter Activity",
-            "description": "Specifies the date the activity was processed by the local or state election official."
+            "title": "Date of Request",
+            "description": "Specifies the date the request was processed by the local or state election official."
           },
-                {
-                  "name": "VoterActivityStatusType",
-                  "type": "string",
-                  "title": "Voter Activity Status",
-                  "description": "Specifies the current status of the UOCAVA voter activity. Possible values are **accepted**, which denotes that the voter activity was successfully processed; **pending**, which signifies that voter activity is still being processed; **rejected**, which means the voter activity was not successfully processed.",
-                  "constraints": {
-                    "required": true,
-                    "enum": [
-                      "accepted",
-                      "pending",
-                      "rejected"
-                    ]
-                  }
-                },
           {
-            "name": "VoterActivityStatusRejectionType",
+            "name": "RequestStatusType",
+            "type": "string",
+            "title": "Request Status",
+            "description": "Specifies the current status of the UOCAVA request. Possible values are **accepted**, which denotes that the request was successfully processed; **pending**, which signifies that request is still being processed; **rejected**, which means the request was not successfully processed.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "accepted",
+                "pending",
+                "rejected"
+              ]
+            }
+          },
+          {
+            "name": "RequestStatusRejectionType",
             "type": "array",
-            "title": "Voter Activity Status Rejection Type",
-            "description": "If VoterActivityStatusType is **rejected**, then VoterActivityStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
+            "title": "Request Status Rejection Type",
+            "description": "If RequestStatusType is **rejected**, then RequestStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
             "constraints": {
               "required": false,
               "enum": [
@@ -118,16 +118,16 @@
             }
           },
           {
-            "name": "VoterActivityRejectionOtherType",
+            "name": "RequestRejectionOtherType",
             "type": "string",
-            "title": "Other Activity Rejection Status Type",
-            "description": "If VoterActivityStatusRejectionType fails to cover all possible types of Voter Activity Rejection reasons, this field will list an alternate type."
+            "title": "Other Request Rejection Status Type",
+            "description": "If RequestStatusRejectionType fails to cover all possible types of request rejection reasons, this field will list an alternate type."
           },
           {
-            "name": "VoterActivityType",
+            "name": "RequestType",
             "type": "string",
-            "title": "Type of Application Request",
-            "description": "Specifies the type of activity that triggered the UOCAVA change. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form triggered the activity; and **untracked**, which means the type of application is not tracked.",
+            "title": "Type of Request",
+            "description": "Specifies the type of request that triggered the UOCAVA change. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form triggered the activity; and **untracked**, which means the type of application is not tracked.",
             "constraints": {
               "required": true,
               "enum": [
