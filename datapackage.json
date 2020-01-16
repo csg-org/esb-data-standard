@@ -169,16 +169,16 @@
             "description": "If BallotRejectionType fails to cover all the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
           },
           {
-            "name": "BallotReturnDate",
+            "name": "BallotReceivedDate",
             "type": "date",
-            "title": "Ballot Returned Date",
-            "description": "Specifies the date the voter returned the ballot to the local or state election official."
+            "title": "Ballot Received Date",
+            "description": "Specifies the date the ballot was received by the local or state election official."
           },
           {
-            "name": "BallotReturnMethod",
+            "name": "BallotReceivedMethod",
             "type": "string",
-            "title": "Ballot Return Method",
-            "description": "Specifies the method by which the voter returned the ballot to the local or state election official. Possible values are **email**, which signifies the ballot was received via email; **fax**, which denotes the ballot was received by fax; **in-person**, which means the ballot was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the ballot); **mail**, which signifies the ballot was received via mail; **online**, which means the ballot was submitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "title": "Ballot Received Method",
+            "description": "Specifies the method by which the ballot was received by the local or state election official. Possible values are **email**, which signifies the ballot was received via email; **fax**, which denotes the ballot was received by fax; **in-person**, which means the ballot was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the ballot); **mail**, which signifies the ballot was received via mail; **online**, which means the ballot was submitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
                 "email",
@@ -192,10 +192,10 @@
             }
           },
           {
-            "name": "BallotReturnOtherMethod",
+            "name": "BallotReceivedOtherMethod",
             "type": "string",
-            "title": "Other Ballot Return Method",
-            "description": "If BallotReturnMethod fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official."
+            "title": "Other Ballot Received Method",
+            "description": "If BallotReceivedMethod fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official."
           },
           {
             "name": "BallotTransmissionDate",
