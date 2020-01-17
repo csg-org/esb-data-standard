@@ -56,7 +56,7 @@
           {
             "name": "RequestMethod",
             "type": "string",
-            "title": "Voter Request Method",
+            "title": "Request Method",
             "description": "Specifies the method by which the UOCAVA request was triggered. Possible values are **email**; **fax**; **in-person**, which means the request was triggered by a person; **mail**; **online**, which means the request was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
@@ -76,7 +76,7 @@
             "name": "RequestOtherMethod",
             "type": "string",
             "title": "Other Request Method",
-            "description": "If RequestMethod fails to cover all of the possible requests methods for a particular voter transaction, this field specifies an alternate method by which the request was received."
+            "description": "If RequestMethod fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the request was received."
           },
           {
             "name": "RequestDate",
