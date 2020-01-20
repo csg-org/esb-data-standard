@@ -1,38 +1,38 @@
-.. _ID:
+.. _Id:
 
-ID
+Id
 ``
 **Data Type:** string
 
 *This field is required and must be unique.*
 
-Unique identifier for the transaction (i.e. not the voter). IDs should remain consistent, regardless of when an export is created.
+Unique identifier for the transaction (i.e. not the voter). Ids should remain consistent, regardless of when an export is created.
 
 
 
-.. _VoterID:
+.. _VoterId:
 
-VoterID
+VoterId
 ```````
 **Data Type:** string
 
 *This field is required.*
 
-Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.
+Identifier that uniquely identifies a voter but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter.
 
 
 
-.. _ApplicationRequestMethod:
+.. _RequestMethod:
 
-ApplicationRequestMethod
-````````````````````````
+RequestMethod
+`````````````
 **Data Type:** string
 
 *This field is required.*
 
-Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
+Specifies the method by which the UOCAVA request was triggered. Possible values are **email**; **fax**; **in-person**, which means the request was triggered by a person; **mail**; **online**, which means the request was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
 
-The value of ``ApplicationRequestMethod`` must be one of the following:
+The value of ``RequestMethod`` must be one of the following:
 
 - email
 - fax
@@ -43,34 +43,22 @@ The value of ``ApplicationRequestMethod`` must be one of the following:
 - untracked
 - other
 
-.. _ApplicationRequestOtherMethod:
+.. _RequestOtherMethod:
 
-ApplicationRequestOtherMethod
-`````````````````````````````
+RequestOtherMethod
+``````````````````
 **Data Type:** string
 
 
 
-If :ref:`ApplicationRequestMethod` fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the application request was received.
+If :ref:`RequestMethod` fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the request was received.
 
 
 
-.. _ApplicationRequestPostmarkDate:
+.. _RequestDate:
 
-ApplicationRequestPostmarkDate
-``````````````````````````````
-**Data Type:** date
-
-
-
-Specifies the date the request was postmarked. If there is any confusion as to the whether the date the application was recorded was the date on the postmark or the date the application was physically received by the election administration entity, assume postmark and use this field rather than :ref:`ApplicationRequestReceivedDate`.
-
-
-
-.. _ApplicationRequestProcessedDate:
-
-ApplicationRequestProcessedDate
-```````````````````````````````
+RequestDate
+```````````
 **Data Type:** date
 
 
@@ -79,29 +67,33 @@ Specifies the date the request was processed by the local or state election offi
 
 
 
-.. _ApplicationRequestReceivedDate:
+.. _RequestStatusType:
 
-ApplicationRequestReceivedDate
-``````````````````````````````
-**Data Type:** date
+RequestStatusType
+`````````````````
+**Data Type:** string
 
+*This field is required.*
 
+Specifies the current status of the UOCAVA request. Possible values are **accepted**, which denotes that the request was successfully processed; **pending**, which signifies that request is still being processed; **rejected**, which means the request was not successfully processed.
 
-Specifies the date the application request was received by the local or state election official. In mail-only states, this date is the most recent date the voter became an active UOCAVA voter.
+The value of ``RequestStatusType`` must be one of the following:
 
+- accepted
+- pending
+- rejected
 
+.. _RequestStatusRejectionType:
 
-.. _ApplicationRequestRejectionType:
-
-ApplicationRequestRejectionType
-```````````````````````````````
+RequestStatusRejectionType
+``````````````````````````
 **Data Type:** array
 
 *This field is required.*
 
-If :ref:`ApplicationRequestStatusType` is **rejected** or **cured**, then specifies the reason the application was rejected. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.
+If :ref:`RequestStatusType` is **rejected**, then RequestStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.
 
-The value of ``ApplicationRequestRejectionType`` must be one of the following:
+The value of ``RequestStatusRejectionType`` must be one of the following:
 
 - duplicate
 - invalid
@@ -112,46 +104,29 @@ The value of ``ApplicationRequestRejectionType`` must be one of the following:
 - missing-voter-signature
 - other
 
-.. _ApplicationRequestRejectionOtherType:
+.. _RequestRejectionOtherType:
 
-ApplicationRequestRejectionOtherType
-````````````````````````````````````
+RequestRejectionOtherType
+`````````````````````````
 **Data Type:** string
 
 
 
-If :ref:`ApplicationRequestRejectionType` fails to cover all possible types of Application Rejection reasons, this field will list an alternate type.
+If :ref:`RequestStatusRejectionType` fails to cover all possible types of request rejection reasons, this field will list an alternate type.
 
 
 
-.. _ApplicationRequestStatusType:
+.. _RequestType:
 
-ApplicationRequestStatusType
-````````````````````````````
-**Data Type:** string
-
-*This field is required.*
-
-Specifies the current status of the application. Possible values are **accepted**, which denotes that the application was successfully processed; **cured** which means the application was supplemented with additional information to make it valid; **pending**, which signifies that application is still being processed; **rejected** which means the application was not successfully processed.
-
-The value of ``ApplicationRequestStatusType`` must be one of the following:
-
-- accepted
-- cured
-- pending
-- rejected
-
-.. _ApplicationRequestType:
-
-ApplicationRequestType
-``````````````````````
+RequestType
+```````````
 **Data Type:** string
 
 *This field is required.*
 
-Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form used for ballot requests; and **untracked**, which means the type of application is not tracked.
+Specifies the type of request that triggered the UOCAVA change. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form triggered the activity; and **untracked**, which means the type of application is not tracked.
 
-The value of ``ApplicationRequestType`` must be one of the following:
+The value of ``RequestType`` must be one of the following:
 
 - fpca
 - fwab
@@ -193,33 +168,33 @@ BallotRejectionOtherType
 
 
 
-If :ref:`BallotRejectionType` fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected.
+If :ref:`BallotRejectionType` fails to cover all the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected.
 
 
 
-.. _BallotReturnDate:
+.. _BallotReceivedDate:
 
-BallotReturnDate
-````````````````
+BallotReceivedDate
+``````````````````
 **Data Type:** date
 
 
 
-Specifies the date the voter returned the ballot to the local or state election official.
+Specifies the date the ballot was received by the local or state election official.
 
 
 
-.. _BallotReturnType:
+.. _BallotReceivedMethod:
 
-BallotReturnType
-````````````````
+BallotReceivedMethod
+````````````````````
 **Data Type:** string
 
 
 
-Specifies the method by which the voter returned the ballot to the local or state election official. Possible values are **email**, which signifies the ballot was received via email; **fax**, which denotes the ballot was received by fax; **in-person**, which means the ballot was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the ballot); **mail**, which signifies the ballot was received via mail; **online**, which means the ballot was submitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
+Specifies the method by which the ballot was received by the local or state election official. Possible values are **email**, which signifies the ballot was received via email; **fax**, which denotes the ballot was received by fax; **in-person**, which means the ballot was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the ballot); **mail**, which signifies the ballot was received via mail; **online**, which means the ballot was submitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
 
-The value of ``BallotReturnType`` must be one of the following:
+The value of ``BallotReceivedMethod`` must be one of the following:
 
 - email
 - fax
@@ -229,15 +204,15 @@ The value of ``BallotReturnType`` must be one of the following:
 - untracked
 - other
 
-.. _BallotReturnOtherType:
+.. _BallotReceivedOtherMethod:
 
-BallotReturnOtherType
-`````````````````````
+BallotReceivedOtherMethod
+`````````````````````````
 **Data Type:** string
 
 
 
-If :ref:`BallotReturnType` fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official.
+If :ref:`BallotReceivedMethod` fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official.
 
 
 
@@ -253,17 +228,17 @@ Specifies the date the local or state election official sent the ballot to the v
 
 
 
-.. _BallotTransmissionType:
+.. _BallotTransmissionMethod:
 
-BallotTransmissionType
-``````````````````````
+BallotTransmissionMethod
+````````````````````````
 **Data Type:** string
 
 
 
 Specifies the method in which the ballot was sent to the voter. Possible values are **email**, which signifies the ballot was transmitted via email; **fax**, which denotes the ballot was transmitted by fax; **in-person**, which means the ballot given to a person; **mail**, which signifies the ballot was transmitted via mail; **online**, which means the ballot was transmitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.
 
-The value of ``BallotTransmissionType`` must be one of the following:
+The value of ``BallotTransmissionMethod`` must be one of the following:
 
 - email
 - fax
@@ -273,15 +248,15 @@ The value of ``BallotTransmissionType`` must be one of the following:
 - untracked
 - other
 
-.. _BallotTransmissionOtherType:
+.. _BallotTransmissionOtherMethod:
 
-BallotTransmissionOtherType
-```````````````````````````
+BallotTransmissionOtherMethod
+`````````````````````````````
 **Data Type:** string
 
 
 
-If :ref:`BallotTransmissionType` fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter.
+If :ref:`BallotTransmissionMethod` fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter.
 
 
 
@@ -348,13 +323,13 @@ JurisdictionIdType
 
 *This field is required.*
 
-Specifies the type of identifier used to identify the jurisdiction in :ref:`JurisdictionId`. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.
+Specifies the type of identifier used to identify the jurisdiction in :ref:`JurisdictionId`. Possible values are **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, **local**, which dictates the jurisdiction created the identifier, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.
 
 The value of ``JurisdictionIdType`` must be one of the following:
 
-- ocd-id
 - fips
 - local
+- ocd-id
 
 .. _JurisdictionName:
 
@@ -389,8 +364,8 @@ The value of ``StateName`` must be one of the following:
 - Colorado
 - Connecticut
 - Delaware
-- District Of Columbia
-- Federated States Of Micronesia
+- District of Columbia
+- Federated States of Micronesia
 - Florida
 - Georgia
 - Guam
@@ -460,25 +435,16 @@ VoterType
 
 
 
-Specifies whether the voter is domestic or overseas military (or, if the domestic or overseas designation is unknown, simply whether the voter is military), overseas citizen, or other.
+Specifies whether the voter is domestic or overseas military (or simply military if the designation is unknown), a spouse or dependent of a member of the military, or other if the type of voter falls outside the previous designations.
 
 The value of ``VoterType`` must be one of the following:
 
 - domestic-military
+- domestic-military-spouse-dependent
 - military
+- military-spouse-dependent
 - overseas-citizen
 - overseas-military
+- overseas-military-spouse-dependent
 - other
-
-.. _WasApplicationRejected:
-
-WasApplicationRejected
-``````````````````````
-**Data Type:** boolean
-
-
-
-**Deprecated.** Specifies whether the application request was accepted or rejected.
-
-
 
