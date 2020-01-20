@@ -91,7 +91,7 @@ RequestStatusRejectionType
 
 *This field is required.*
 
-If :ref:`RequestStatusType` is **rejected**, then RequestStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.
+If :ref:`RequestStatusType` is **rejected**, then RequestStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, **untracked**, which means the reason for rejection is not tracked, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.
 
 The value of ``RequestStatusRejectionType`` must be one of the following:
 
@@ -102,6 +102,7 @@ The value of ``RequestStatusRejectionType`` must be one of the following:
 - missing-ssn
 - missing-state-id-number
 - missing-voter-signature
+- untracked
 - other
 
 .. _RequestRejectionOtherType:
