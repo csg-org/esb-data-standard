@@ -57,7 +57,7 @@
             "name": "RequestMethod",
             "type": "string",
             "title": "Request Method",
-            "description": "Specifies the method by which the UOCAVA request was triggered. Possible values are **email**; **fax**; **in-person**, which means the request was triggered by a person; **mail**; **online**, which means the request was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "description": "Specifies the method by which the request was triggered. Possible values are **email**; **fax**; **in-person**, which means the request was triggered by a person; **mail**; **online**, which means the request was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
               "enum": [
@@ -88,7 +88,7 @@
             "name": "RequestStatusType",
             "type": "string",
             "title": "Request Status",
-            "description": "Specifies the current status of the UOCAVA request. Possible values are **accepted**, which denotes that the request was successfully processed; **pending**, which signifies that request is still being processed; **rejected**, which means the request was not successfully processed.",
+            "description": "Specifies the current status of the request. Possible values are **accepted**, which denotes that the request was successfully processed; **pending**, which signifies that request is still being processed; **rejected**, which means the request was not successfully processed.",
             "constraints": {
               "required": true,
               "enum": [
@@ -128,7 +128,7 @@
             "name": "RequestType",
             "type": "string",
             "title": "Type of Request",
-            "description": "Specifies the type of request that triggered the UOCAVA change. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form triggered the activity; and **untracked**, which means the type of application is not tracked.",
+            "description": "Specifies the type of request that triggered the change. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form triggered the activity; and **untracked**, which means the type of application is not tracked.",
             "constraints": {
               "required": true,
               "enum": [
