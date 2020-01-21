@@ -51,7 +51,9 @@ def create_docs(fields):
 {enumerations}
 
 """
+    data_type_reference_url_tmpl = '../formatting/#{}'
     field_names = [field['name'] for field in fields]
+    data_types = list(set([field['type'] for field in fields]))
 
     with output_file.open('w') as rst:
         for field in fields:
@@ -80,12 +82,17 @@ def create_docs(fields):
                 ref_label='.. _{}:'.format(field['name']),
                 name=field['name'],
                 name_header='`' * len(field['name']),
-                data_type='**Data Type:** {}'.format(field['type']),
+                data_type='**Data Type:** `{}`_'.format(field['type']),
                 constraints='*{}*'.format(constraints) if constraints else '',
                 description=decorate_links(field['description'], field_names),
                 enumerations=enumerations
             ))
 
+        for data_type in data_types:
+            rst.write('.. _{}: {}\n'.format(
+                data_type,
+                data_type_reference_url_tmpl.format(data_type)
+            ))
 
 def main():
     '''Starts the process of generating documentation'''

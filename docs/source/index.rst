@@ -21,4 +21,4 @@ administrative process.
    :maxdepth: 3
 
    csv/index
-   csv/file_structure
+   formatting/index

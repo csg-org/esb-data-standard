@@ -2,7 +2,7 @@
 
 Id
 ``
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required and must be unique.*
 
@@ -14,7 +14,7 @@ Unique identifier for the transaction (i.e. not the voter). Ids should remain co
 
 VoterId
 ```````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -26,7 +26,7 @@ Identifier that uniquely identifies a voter but is not required to be unique wit
 
 RequestMethod
 `````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -47,7 +47,7 @@ The value of ``RequestMethod`` must be one of the following:
 
 RequestOtherMethod
 ``````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -59,7 +59,7 @@ If :ref:`RequestMethod` fails to cover all of the possible request methods for a
 
 RequestDate
 ```````````
-**Data Type:** date
+**Data Type:** `date`_
 
 
 
@@ -71,7 +71,7 @@ Specifies the date the request was processed by the local or state election offi
 
 RequestStatusType
 `````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -87,7 +87,7 @@ The value of ``RequestStatusType`` must be one of the following:
 
 RequestStatusRejectionType
 ``````````````````````````
-**Data Type:** array
+**Data Type:** `array`_
 
 *This field is required.*
 
@@ -109,7 +109,7 @@ The value of ``RequestStatusRejectionType`` must be one of the following:
 
 RequestRejectionOtherType
 `````````````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -121,7 +121,7 @@ If :ref:`RequestStatusRejectionType` fails to cover all possible types of reques
 
 RequestType
 ```````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -140,7 +140,7 @@ The value of ``RequestType`` must be one of the following:
 
 BallotRejectionType
 ```````````````````
-**Data Type:** array
+**Data Type:** `array`_
 
 
 
@@ -165,7 +165,7 @@ The value of ``BallotRejectionType`` must be one of the following:
 
 BallotRejectionOtherType
 ````````````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -177,7 +177,7 @@ If :ref:`BallotRejectionType` fails to cover all the possible ways a ballot may 
 
 BallotReceivedDate
 ``````````````````
-**Data Type:** date
+**Data Type:** `date`_
 
 
 
@@ -189,7 +189,7 @@ Specifies the date the ballot was received by the local or state election offici
 
 BallotReceivedMethod
 ````````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -209,7 +209,7 @@ The value of ``BallotReceivedMethod`` must be one of the following:
 
 BallotReceivedOtherMethod
 `````````````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -221,7 +221,7 @@ If :ref:`BallotReceivedMethod` fails to cover all of the possible return types f
 
 BallotTransmissionDate
 ``````````````````````
-**Data Type:** date
+**Data Type:** `date`_
 
 
 
@@ -233,7 +233,7 @@ Specifies the date the local or state election official sent the ballot to the v
 
 BallotTransmissionMethod
 ````````````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -253,7 +253,7 @@ The value of ``BallotTransmissionMethod`` must be one of the following:
 
 BallotTransmissionOtherMethod
 `````````````````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -265,7 +265,7 @@ If :ref:`BallotTransmissionMethod` fails to cover all of the possible transmissi
 
 BallotType
 ``````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -284,7 +284,7 @@ The value of ``BallotType`` must be one of the following:
 
 ElectionDate
 ````````````
-**Data Type:** date
+**Data Type:** `date`_
 
 *This field is required.*
 
@@ -296,7 +296,7 @@ Specifies the date the election took place.
 
 ElectionName
 ````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -308,7 +308,7 @@ Specifies the name of the election.
 
 JurisdictionId
 ``````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -320,7 +320,7 @@ Specifies a unique identifier for the jurisdiction.
 
 JurisdictionIdType
 ``````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -336,7 +336,7 @@ The value of ``JurisdictionIdType`` must be one of the following:
 
 JurisdictionName
 ````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -348,7 +348,7 @@ Specifies the name of the jurisdiction in which the voter is registered.
 
 StateName
 `````````
-**Data Type:** string
+**Data Type:** `string`_
 
 *This field is required.*
 
@@ -420,7 +420,7 @@ The value of ``StateName`` must be one of the following:
 
 VoterMailingCountry
 ```````````````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -432,7 +432,7 @@ Specifies what country to which the ballot was mailed. The country should be a r
 
 VoterType
 `````````
-**Data Type:** string
+**Data Type:** `string`_
 
 
 
@@ -449,3 +449,6 @@ The value of ``VoterType`` must be one of the following:
 - overseas-military-spouse-dependent
 - other
 
+.. _array: ../formatting/#array
+.. _string: ../formatting/#string
+.. _date: ../formatting/#date
