@@ -8,22 +8,22 @@ ESB File Structure
 ------------------
 
 The CSV file must be comma-delimited, UTF-8 (with BOM omitted) .csv files, named
-according to the `CSV documentation`_.
+according to the `CSV Documentation`_.
 
 Header Row
 ----------
 
 The first line of the file, or header row, must conform to the following:
 
-- The CSV file must include a header row containing a comma-delimited list of all data fields. NB: All data fields must be included in the header row, even if those fields are never used.
-- All fields names must be in the same letter casing as they appear in the `CSV documentation`_, e.g. ``BallotReturnDate`` is acceptable, but ``ballotreturndate`` is not.
+- The CSV file must include a header row containing a comma-delimited list of all data fields, including unused fields.
+- All fields names must be in the same letter casing as they appear in the `CSV documentation`_ (e.g. ``BallotReturnDate`` is acceptable, but ``ballotreturndate`` is not).
 - All fields must be emitted in the order they appear in the `CSV documentation`_.
 
 Control Characters
 ------------------
 
 The CSV file must be free of control characters, except for newlines, which should 
-follow UNIX syntax, i.e. ``\n``. 
+follow UNIX syntax (i.e. ``\n``).
 
 Missing Values
 --------------
@@ -50,7 +50,7 @@ An ``array`` is used to store multiple values in a single field.
 
     [""first-value"",""second-value""]
 
-NB: Even if a single value is to be emitted, it still must be surrounded by 
+Even if a field only contains a single value, it still must be surrounded by 
 brackets.
 
 boolean
@@ -73,5 +73,5 @@ strings. Be sure to read the documentation for each ``string`` field, as some
 fields only allow values that are specified in an enumerated list. String fields
 should be free of leading or training whitespace.
 
-.. _CSV documentation: index.html
+.. _CSV documentation: ../csv/
 .. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601

@@ -15,8 +15,8 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.11.0",
-  "last_updated": "2019-08-18",
+  "version": "0.12.0",
+  "last_updated": "2020-01-09",
   "sources": [
     {
       "title": "CSG Overseas Voting Initiative",
@@ -35,29 +35,29 @@
       "schema": {
         "fields": [
           {
-            "name": "ID",
+            "name": "Id",
             "type": "string",
             "title": "Identifier",
-            "description": "Unique identifier for the transaction (i.e. not the voter). IDs should remain consistent, regardless of when an export is created.",
+            "description": "Unique identifier for the transaction (i.e. not the voter). Ids should remain consistent, regardless of when an export is created.",
             "constraints": {
               "required": true,
               "unique": true
             }
           },
           {
-            "name": "VoterID",
+            "name": "VoterId",
             "type": "string",
             "title": "Voter Identifier",
-            "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter. In addition, if there are questions about a particular voter's transactions, an organization could provide this identifier back to the jurisdiction to glean more information about the voter's experience.",
+            "description": "Identifier that uniquely identifies a voter but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter.",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "ApplicationRequestMethod",
+            "name": "RequestMethod",
             "type": "string",
-            "title": "Application Request Method",
-            "description": "Specifies the method by which the application request was received. Possible values are **email**, which signifies the application was received via email; **fax**, which denotes the application was received by fax; **in-person**, which means the application was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the application); **mail**, which signifies the application was received via mail; **online**, which means the application was submitted via online form or system; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "title": "Request Method",
+            "description": "Specifies the method by which the request was triggered. Possible values are **email**; **fax**; **in-person**, which means the request was triggered by a person; **mail**; **online**, which means the request was submitted via online form or system — through the elections office or other registration agency; **phone**, which means the request was placed via phone call; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "required": true,
               "enum": [
@@ -73,34 +73,36 @@
             }
           },
           {
-            "name": "ApplicationRequestOtherMethod",
+            "name": "RequestOtherMethod",
             "type": "string",
-            "title": "Other Application Request Method",
-            "description": "If ApplicationRequestMethod fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the application request was received."
+            "title": "Other Request Method",
+            "description": "If RequestMethod fails to cover all of the possible request methods for a particular voter transaction, this field specifies an alternate method by which the request was received."
           },
           {
-            "name": "ApplicationRequestPostmarkDate",
+            "name": "RequestDate",
             "type": "date",
-            "title": "Date Application Request Was Postmarked",
-            "description": "Specifies the date the request was postmarked. If there is any confusion as to the whether the date the application was recorded was the date on the postmark or the date the application was physically received by the election administration entity, assume postmark and use this field rather than ApplicationRequestReceivedDate."
-          },
-          {
-            "name": "ApplicationRequestProcessedDate",
-            "type": "date",
-            "title": "Date Application Request Was Processed",
+            "title": "Date of Request",
             "description": "Specifies the date the request was processed by the local or state election official."
           },
           {
-            "name": "ApplicationRequestReceivedDate",
-            "type": "date",
-            "title": "Application Request Received Date",
-            "description": "Specifies the date the application request was received by the local or state election official. In mail-only states, this date is the most recent date the voter became an active UOCAVA voter."
+            "name": "RequestStatusType",
+            "type": "string",
+            "title": "Request Status",
+            "description": "Specifies the current status of the request. Possible values are **accepted**, which denotes that the request was successfully processed; **pending**, which signifies that request is still being processed; **rejected**, which means the request was not successfully processed.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "accepted",
+                "pending",
+                "rejected"
+              ]
+            }
           },
           {
-            "name": "ApplicationRequestRejectionType",
+            "name": "RequestStatusRejectionType",
             "type": "array",
-            "title": "Application Request Rejection Type",
-            "description": "If ApplicationRequestStatusType is **rejected** or **cured**, then specifies the reason the application was rejected. Possible values are **duplicate**, which  denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
+            "title": "Request Status Rejection Type",
+            "description": "If RequestStatusType is **rejected**, then RequestStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, **untracked**, which means the reason for rejection is not tracked, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
             "constraints": {
               "required": false,
               "enum": [
@@ -111,36 +113,22 @@
                 "missing-ssn",
                 "missing-state-id-number",
                 "missing-voter-signature",
+                "untracked",
                 "other"
               ]
             }
           },
           {
-            "name": "ApplicationRequestRejectionOtherType",
+            "name": "RequestRejectionOtherType",
             "type": "string",
-            "title": "Other Application Rejection Status Type",
-            "description": "If ApplicationRequestRejectionType fails to cover all possible types of Application Rejection reasons, this field will list an alternate type."
+            "title": "Other Request Rejection Status Type",
+            "description": "If RequestStatusRejectionType fails to cover all possible types of request rejection reasons, this field will list an alternate type."
           },
           {
-            "name": "ApplicationRequestStatusType",
+            "name": "RequestType",
             "type": "string",
-            "title": "Application Request Status",
-            "description": "Specifies the current status of the application. Possible values are **accepted**, which denotes that the application was successfully processed; **cured** which means the application was supplemented with additional information to make it valid; **pending**, which signifies that application is still being processed; **rejected** which means the application was not successfully processed.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "accepted",
-                "cured",
-                "pending",
-                "rejected"
-              ]
-            }
-          },
-          {
-            "name": "ApplicationRequestType",
-            "type": "string",
-            "title": "Type of Application Request",
-            "description": "Specifies the type of ballot application request. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form used for ballot requests; and **untracked**, which means the type of application is not tracked.",
+            "title": "Type of Request",
+            "description": "Specifies the type of request that triggered the change. Possible values are **fpca**, which means a voter submitted a Federal Postcard Application; **fwab**, which denotes a voter returned a Federal Write-In Absentee Ballot prior to receiving or requesting a ballot through other means; **informal-request**, which signifies a voter requested a ballot through a less formal process, such as a letter or phone call; **nvra**, which means a voter used a National Voter Registration (Act) form; **state-application**, which denotes a state form triggered the activity; and **untracked**, which means the type of application is not tracked.",
             "constraints": {
               "required": true,
               "enum": [
@@ -179,19 +167,19 @@
             "name": "BallotRejectionOtherType",
             "type": "string",
             "title": "Other Ballot Rejection Type",
-            "description": "If BallotRejectionType fails to cover all of the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
+            "description": "If BallotRejectionType fails to cover all the possible ways a ballot may be rejected, this field specifies an alternate reason why the reason the ballot was rejected."
           },
           {
-            "name": "BallotReturnDate",
+            "name": "BallotReceivedDate",
             "type": "date",
-            "title": "Ballot Returned Date",
-            "description": "Specifies the date the voter returned the ballot to the local or state election official."
+            "title": "Ballot Received Date",
+            "description": "Specifies the date the ballot was received by the local or state election official."
           },
           {
-            "name": "BallotReturnType",
+            "name": "BallotReceivedMethod",
             "type": "string",
-            "title": "Ballot Return Type",
-            "description": "Specifies the method by which the voter returned the ballot to the local or state election official. Possible values are **email**, which signifies the ballot was received via email; **fax**, which denotes the ballot was received by fax; **in-person**, which means the ballot was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the ballot); **mail**, which signifies the ballot was received via mail; **online**, which means the ballot was submitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
+            "title": "Ballot Received Method",
+            "description": "Specifies the method by which the ballot was received by the local or state election official. Possible values are **email**, which signifies the ballot was received via email; **fax**, which denotes the ballot was received by fax; **in-person**, which means the ballot was delivered by a person (NB: this does not necessarily signify the voter themselves delivered the ballot); **mail**, which signifies the ballot was received via mail; **online**, which means the ballot was submitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
                 "email",
@@ -205,10 +193,10 @@
             }
           },
           {
-            "name": "BallotReturnOtherType",
+            "name": "BallotReceivedOtherMethod",
             "type": "string",
-            "title": "Ballot Return Type",
-            "description": "If BallotReturnType fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official."
+            "title": "Other Ballot Received Method",
+            "description": "If BallotReceivedMethod fails to cover all of the possible return types for a particular voter transaction, this field specifies an alternate method by which the voter returned the ballot to the local or state election official."
           },
           {
             "name": "BallotTransmissionDate",
@@ -217,9 +205,9 @@
             "description": "Specifies the date the local or state election official sent the ballot to the voter."
           },
           {
-            "name": "BallotTransmissionType",
+            "name": "BallotTransmissionMethod",
             "type": "string",
-            "title": "Ballot Transmission Type",
+            "title": "Ballot Transmission Method",
             "description": "Specifies the method in which the ballot was sent to the voter. Possible values are **email**, which signifies the ballot was transmitted via email; **fax**, which denotes the ballot was transmitted by fax; **in-person**, which means the ballot given to a person; **mail**, which signifies the ballot was transmitted via mail; **online**, which means the ballot was transmitted via online form or system; **untracked**, which signifies that this variable is not tracked in the system; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
               "enum": [
@@ -234,10 +222,10 @@
             }
           },
           {
-            "name": "BallotTransmissionOtherType",
+            "name": "BallotTransmissionOtherMethod",
             "type": "string",
-            "title": "Other Ballot Transmission Type",
-            "description": "If BallotTransmissionType fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter."
+            "title": "Other Ballot Transmission Method",
+            "description": "If BallotTransmissionMethod fails to cover all of the possible transmission types for a particular transaction, this field specifies an alternate method in which the local or state election official sent the ballot to the voter."
           },
           {
             "name": "BallotType",
@@ -286,13 +274,13 @@
             "name": "JurisdictionIdType",
             "type": "string",
             "title": "Jurisdiction Identifier Type",
-            "description": "Specifies the type of identifier used to identify the jurisdiction in JurisdictionId. Possible values are **local**, which dictates the jurisdiction created the identifier, **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.",
+            "description": "Specifies the type of identifier used to identify the jurisdiction in JurisdictionId. Possible values are **fips**, which means the identifier follows the Federal Information Processing Standard (FIPS) code, **local**, which dictates the jurisdiction created the identifier, or **ocd-id**, which means the identifier follows the Open Civic Data Division Identifier (OCDID) standard.",
             "constraints": {
               "required": true,
               "enum": [
-                "ocd-id",
                 "fips",
-                "local"
+                "local",
+                "ocd-id"
               ]
             }
           },
@@ -322,8 +310,8 @@
                 "Colorado",
                 "Connecticut",
                 "Delaware",
-                "District Of Columbia",
-                "Federated States Of Micronesia",
+                "District of Columbia",
+                "Federated States of Micronesia",
                 "Florida",
                 "Georgia",
                 "Guam",
@@ -385,7 +373,7 @@
             "name": "VoterType",
             "type": "string",
             "title": "Voter Type",
-            "description": "Specifies whether the voter is domestic or overseas military (or simply "military" if the designation is unknown), a spouse or dependent of a member of the military, or other if the type of voter falls outside the previous designations.",
+            "description": "Specifies whether the voter is domestic or overseas military (or simply military if the designation is unknown), a spouse or dependent of a member of the military, or other if the type of voter falls outside the previous designations.",
             "constraints": {
               "enum": [
                 "domestic-military",
@@ -398,16 +386,11 @@
                 "other"
               ]
             }
-          },
-          {
-            "name": "WasApplicationRejected",
-            "type": "boolean",
-            "title": "Was the Application Rejected",
-            "description": "**Deprecated.** Specifies whether the application request was accepted or rejected."
           }
         ],
         "missingValues": [
-          ""
+          "",
+          "na"
         ]
       }
     }
