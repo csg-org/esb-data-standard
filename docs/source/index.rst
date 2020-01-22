@@ -13,7 +13,7 @@ and casting a ballot. This standard gives states and jurisdictions a mechanism t
 structured format that allows for deeper analysis of voter behavior and isolate potential pitfalls in the
 administrative process.
 
-.. _Election Administration and Voting Survey: https://www.eac.gov/research/
+.. _Election Administration and Voting Survey: https://www.eac.gov/research-and-data
 
 .. toctree::
    :caption: Table of Contents
