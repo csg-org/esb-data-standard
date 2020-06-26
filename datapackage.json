@@ -15,8 +15,8 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.12.0",
-  "last_updated": "2020-01-09",
+  "version": "0.13.0",
+  "last_updated": "2020-06-26",
   "sources": [
     {
       "title": "CSG Overseas Voting Initiative",
@@ -88,21 +88,22 @@
             "name": "RequestStatusType",
             "type": "string",
             "title": "Request Status",
-            "description": "Specifies the current status of the request. Possible values are **accepted**, which denotes that the request was successfully processed; **pending**, which signifies that request is still being processed; **rejected**, which means the request was not successfully processed.",
+            "description": "Specifies the current status of the request. Possible values are **accepted**, which denotes that the request was successfully processed; **cancelled**, which signifies that the request has been cancelled by a voter's direct or indirect action; **pending**, which signifies that request is still being processed; **rejected**, which means the request was not successfully processed.",
             "constraints": {
               "required": true,
               "enum": [
                 "accepted",
+		"cancelled",
                 "pending",
                 "rejected"
               ]
             }
           },
           {
-            "name": "RequestStatusRejectionType",
+            "name": "RequestStatusReasonType",
             "type": "array",
-            "title": "Request Status Rejection Type",
-            "description": "If RequestStatusType is **rejected**, then RequestStatusRejectedType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter, **invalid**, which means the application was invalid, **mismatch-voter-signature**, which means the application signature did not match the voter signature on file, **missing-identification** which means that an unspecified identifier was required and missing from the application, **missing-ssn**, denoting that the Social Security Number was missing from the application, **missing-state-id-number**, which means the state identifier was required and missing from the application,  **missing-voter-signature**, meaning the voter did not sign the application, **untracked**, which means the reason for rejection is not tracked, and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
+            "title": "Request Status Reason Type",
+            "description": "If RequestStatusType is **rejected**, **cancelled**, or **pending**, then RequestStatusReasonType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter; **invalid**, which means the application was invalid; **mismatch-voter-signature**, which means the application signature did not match the voter signature on file; **missing-identification**, which means that an unspecified identifier was required and missing from the application; **missing-ssn**, denoting that the Social Security Number was missing from the application; **missing-state-id-number**, which means the state identifier was required and missing from the application; **missing-voter-signature**, meaning the voter did not sign the application; **untracked**, which means the reason for rejection is not tracked; and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
             "constraints": {
               "required": false,
               "enum": [
@@ -119,10 +120,10 @@
             }
           },
           {
-            "name": "RequestRejectionOtherType",
+            "name": "RequestReasonOtherType",
             "type": "string",
-            "title": "Other Request Rejection Status Type",
-            "description": "If RequestStatusRejectionType fails to cover all possible types of request rejection reasons, this field will list an alternate type."
+            "title": "Other Request Reason Status Type",
+            "description": "If RequestStatusReasonType fails to cover all possible types of request reasons, this field will list an alternate type."
           },
           {
             "name": "RequestType",
