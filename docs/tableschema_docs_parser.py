@@ -1,5 +1,5 @@
 '''
-Parse datapackage to autogenerate documentation
+Parse tableschema to autogenerate documentation
 '''
 import re
 import json
@@ -32,10 +32,10 @@ def decorate_links(text, words):
 
 def create_docs(fields):
     '''
-    Create rst documentation fragment from datapackage fields
+    Create rst documentation fragment from tableschema fields
 
     Positional arguments
-    fields -- datapackage fields
+    fields -- tableschema fields
     '''
     output_file = Path('source/csv/standard.rst.part')
     core_template = """{ref_label}
@@ -69,12 +69,14 @@ def create_docs(fields):
 
                 if 'required' in field['constraints'] or 'unique' in field['constraints']:
                     constraints = ' '.join([constraints, unique]).strip() + '.'
-
-                if 'enum' in field['constraints']:
-                    enum_list = []
-                    for enum in field['constraints']['enum']:
+                
+                enum_list = []
+                if 'enum' in field['constraints'] or 'esb$enum' in field['constraints']:
+                    ''' For enums that cannot currently be enforced using tableschema tools
+                    we still want them in our documentation, use esb$enum as magic string ''' 
+                    for enum in (field['constraints'].get('enum') or []) + (field['constraints'].get('esb$enum') or []):
                         enum_list.append('- {}'.format(enum))
-
+                
                     enumerations = 'The value of ``{}`` must be one of the following:\n\n'.format(
                         field['name']) + '\n'.join(enum_list)
 
@@ -96,12 +98,12 @@ def create_docs(fields):
 
 def main():
     '''Starts the process of generating documentation'''
-    datapackage = Path('../datapackage.json')
+    tableschema = Path('../tableschema.json')
 
-    if datapackage.exists():
-        with datapackage.open() as data_file:
+    if tableschema.exists():
+        with tableschema.open() as data_file:
             data = json.loads(data_file.read())
-            json_fields = [field for field in data['resources'][0]['schema']['fields']]
+            json_fields = [field for field in data['fields']]
 
             create_docs(json_fields)
 

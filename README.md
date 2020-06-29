@@ -26,7 +26,7 @@ If you've made changes to the specification, do the following:
 
 ```sh
 $ cd docs
-$ python datapackage_docs_parser.py
+$ python tableschema_docs_parser.py
 ```
 
 After executing the above (or assuming you haven't made changes), navigate to the `docs` folder and run the following commands:
