@@ -106,7 +106,7 @@
             "description": "If RequestStatusType is **rejected**, **cancelled**, or **pending**, then RequestStatusReasonType specifies the reason the activity was rejected. Possible values are **duplicate**, which denotes that the election official already received an application for the voter; **invalid**, which means the application was invalid; **mismatch-voter-signature**, which means the application signature did not match the voter signature on file; **missing-identification**, which means that an unspecified identifier was required and missing from the application; **missing-ssn**, denoting that the Social Security Number was missing from the application; **missing-state-id-number**, which means the state identifier was required and missing from the application; **missing-voter-signature**, meaning the voter did not sign the application; **untracked**, which means the reason for rejection is not tracked; and **other**, which is a catch-all for any values that fall outside of the other values. Multiple values are possible for this field.",
             "constraints": {
               "required": false,
-              "enum": [
+              "esb$enum": [
                 "duplicate",
                 "invalid",
                 "mismatch-voter-signature",
@@ -148,7 +148,7 @@
             "title": "Ballot Rejection Type",
             "description": "Specifies the reason why the ballot was rejected. Possible values are **mismatch-voter-signature**, which denotes the signature on file did not match the signature on the returned envelope or document; **missing-voter-signature**, which signifies that the voter signature is missing on the returned documents; **not-timely**, which means the ballot was received after the required deadline; **postmark**, which signifies the ballot was postmarked after the required date; **rejected**, which signifies the ballot was rejected for an unspecified reason; **undeliverable**, which denotes the ballot was returned as undeliverable to the address where it was sent; **untracked**, which signifies that this variable is not tracked in the system; **voided-spoiled**, which means the ballot had to be voided or spoiled either by the administration or the voter; **voter-died**, which signifies the voter died thereby impacting the ability to count the ballot (NB: this is largely dependent on state law); **voter-moved**, which signifies the voter moved from their registered address; **voter-unregistered**, which means the voter is not registered to vote; and, **other**, which is a catch-all for any values that fall outside of the other values.",
             "constraints": {
-              "enum": [
+              "esb$enum": [
                 "mismatch-voter-signature",
                 "missing-voter-signature",
                 "not-timely",

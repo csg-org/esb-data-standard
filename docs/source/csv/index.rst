@@ -28,8 +28,7 @@ Naming Convention
 Due to the many issues around elections data collection and cleanliness, much of the data still requires
 some form of human oversight. Therefore, having a relatively accessible file naming convention is
 beneficial. While this is not a hard-and-fast rule, anyone producing data in this standard should use
-the following naming convention, which borrows from a yet-unreleased version of the `Voting Information
-Project's`_ documentation.
+the following naming convention, which partially borrows from the `Voting Information Project's`_ documentation.
 
 .. code-block:: none
 
