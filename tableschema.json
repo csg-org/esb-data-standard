@@ -27,7 +27,7 @@
 			"name": "Id",
 			"type": "string",
 			"title": "Identifier",
-			"description": "Unique identifier for the transaction (i.e. not the voter). Ids should remain consistent, regardless of when an export is created.",
+			"description": "Unique identifier for the transaction (i.e. not the voter).",
 			"constraints": {
 				"required": true,
 				"unique": true
