@@ -6,7 +6,7 @@ Id
 
 *This field is required and must be unique.*
 
-Unique identifier for the transaction (i.e. not the voter). Ids should remain consistent, regardless of when an export is created.
+Unique identifier for the transaction (i.e. not the voter).
 
 
 
@@ -450,6 +450,6 @@ The value of ``VoterType`` must be one of the following:
 - overseas-military-spouse-dependent
 - other
 
-.. _array: ../formatting/#array
 .. _string: ../formatting/#string
+.. _array: ../formatting/#array
 .. _date: ../formatting/#date
