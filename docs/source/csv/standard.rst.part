@@ -425,7 +425,7 @@ VoterMailingCountry
 
 
 
-Specifies what country to which the ballot was mailed. The country should be a recognized country name according to ISO 3166.
+Specifies what country to which the ballot was mailed. The country should be a recognized country (short) name according to ISO 3166.
 
 
 
@@ -450,6 +450,6 @@ The value of ``VoterType`` must be one of the following:
 - overseas-military-spouse-dependent
 - other
 
-.. _string: ../formatting/#string
 .. _array: ../formatting/#array
 .. _date: ../formatting/#date
+.. _string: ../formatting/#string
