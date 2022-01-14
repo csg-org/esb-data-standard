@@ -16,7 +16,7 @@
     "Data Standard"
   ],
   "version": "0.13.0",
-  "last_updated": "2020-06-26",
+  "last_updated": "2022-01-14",
   "sources": [
     {
       "title": "CSG Overseas Voting Initiative",
@@ -368,7 +368,7 @@
             "name": "VoterMailingCountry",
             "type": "string",
             "title": "Voter's Mailing Country",
-            "description": "Specifies what country to which the ballot was mailed. The country should be a recognized country name according to ISO 3166."
+            "description": "Specifies what country to which the ballot was mailed. The country should be a recognized country (short) name according to ISO 3166."
           },
           {
             "name": "VoterType",

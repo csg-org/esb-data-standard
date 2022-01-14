@@ -6,7 +6,7 @@ Id
 
 *This field is required and must be unique.*
 
-Unique identifier for the transaction (i.e. not the voter). Ids should remain consistent, regardless of when an export is created.
+Unique identifier for the transaction (i.e. not the voter).
 
 
 
@@ -425,7 +425,7 @@ VoterMailingCountry
 
 
 
-Specifies what country to which the ballot was mailed. The country should be a recognized country name according to ISO 3166.
+Specifies what country to which the ballot was mailed. The country should be a recognized country (short) name according to ISO 3166.
 
 
 
@@ -451,5 +451,5 @@ The value of ``VoterType`` must be one of the following:
 - other
 
 .. _array: ../formatting/#array
-.. _string: ../formatting/#string
 .. _date: ../formatting/#date
+.. _string: ../formatting/#string
