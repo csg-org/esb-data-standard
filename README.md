@@ -41,6 +41,6 @@ Open a browser and connect to [http://localhost:8000](http://localhost:8000) and
 
 ## Publishing a new release
 
-When publishing a new release, double-check that there are no errors in the tableschema, the version numbers are correct in `tableschema.json`, `datapackage.json` (soon-to-be removed on the next release), and `conf.py`, and the documentation contains no build errors, and the documentation is viewable locally using the steps defined above.
+When publishing a new release, double-check that there are no errors in the tableschema, the version numbers are correct in `tableschema.json`, `datapackage.json` (soon-to-be removed on the next release), and `conf.py`, the documentation contains no build errors, and the documentation is viewable locally using the steps defined above.
 
 When creating a GitHub release, make sure to explicitly add the latest `tableschema.json` to the release so implementers of the standard can easily access the file to use to validate their standardized datasets using the [DataCurator](https://github.com/qcif/data-curator).
