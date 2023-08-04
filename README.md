@@ -6,6 +6,16 @@ Developed through a collaborative agreement between the Council of State Governm
 ### Prerequisites
 The documentation is built with [Sphinx](http://www.sphinx-doc.org/en/1.7/) and requires execution of a simple [python](https://www.python.org/) script.
 
+#### Changing branch name
+If you have an existing clone of the respository, you'll need to update the branch name to `main` from `master`. To do this, run the following commands:
+
+```sh
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
 ### Build
 While this first step is optional, it's arguably easiest to create a virtual environment to keep the required libraries contained.
 
