@@ -450,6 +450,6 @@ The value of ``VoterType`` must be one of the following:
 - overseas-military-spouse-dependent
 - other
 
-.. _array: ../formatting/#array
 .. _date: ../formatting/#date
+.. _array: ../formatting/#array
 .. _string: ../formatting/#string
