@@ -1,24 +1,24 @@
-.. _Id:
+.. _TransactionId:
 
-Id
-``
+TransactionId
+`````````````
 **Data Type:** `string`_
 
 *This field is required and must be unique.*
 
-Unique identifier for the transaction (i.e. not the voter).
+Unique identifier for the transaction (i.e., not the voter).
 
 
 
-.. _VoterId:
+.. _UniqueId:
 
-VoterId
-```````
+UniqueId
+````````
 **Data Type:** `string`_
 
 *This field is required.*
 
-Identifier that uniquely identifies a voter but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter.
+Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be different from the original voter identifier in the jurisdiction’s registration database. This field helps analyze how effective each type of transaction is for an individual voter.
 
 
 
@@ -450,6 +450,6 @@ The value of ``VoterType`` must be one of the following:
 - overseas-military-spouse-dependent
 - other
 
-.. _date: ../formatting/#date
 .. _array: ../formatting/#array
+.. _date: ../formatting/#date
 .. _string: ../formatting/#string

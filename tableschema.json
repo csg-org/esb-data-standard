@@ -13,8 +13,8 @@
     "EAVS Section B",
     "Data Standard"
   ],
-  "version": "0.13.1",
-  "last_updated": "2022-01-14",
+  "version": "0.14.0",
+  "last_updated": "2024-05-09",
   "sources": [
     {
       "title": "CSG Overseas Voting Initiative",
@@ -24,20 +24,20 @@
   ],
   "fields": [
     {
-      "name": "Id",
+      "name": "TransactionId",
       "type": "string",
       "title": "Identifier",
-      "description": "Unique identifier for the transaction (i.e. not the voter).",
+      "description": "Unique identifier for the transaction (i.e., not the voter).",
       "constraints": {
         "required": true,
         "unique": true
       }
     },
     {
-      "name": "VoterId",
+      "name": "UniqueId",
       "type": "string",
       "title": "Voter Identifier",
-      "description": "Identifier that uniquely identifies a voter but is not required to be unique within the dataset. This number must be obfuscated from the original voter identifier in the jurisdiction's registration database. This field helps analyze how effective each type of transaction is for an individual voter.",
+      "description": "Identifier that uniquely identifies a voter, but is not required to be unique within the dataset. This number must be different from the original voter identifier in the jurisdiction’s registration database. This field helps analyze how effective each type of transaction is for an individual voter.",
       "constraints": {
         "required": true
       }
