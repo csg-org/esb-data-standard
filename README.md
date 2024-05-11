@@ -4,7 +4,7 @@ Developed through a collaborative agreement between the Council of State Governm
 
 ## Documentation
 ### Prerequisites
-The documentation is built with [Sphinx](http://www.sphinx-doc.org/en/1.7/) and requires execution of a simple [python](https://www.python.org/) script.
+The documentation is built with [Sphinx](https://www.sphinx-doc.org/en/master/) and requires execution of a simple [python](https://www.python.org/) script. Packages are maintained with [pipenv](https://pypi.org/project/pipenv/), which can be installed with [pip](https://pypi.org/project/pip/).
 
 #### Changing branch name
 If you have an existing clone of the respository, you'll need to update the branch name to `main` from `master`. To do this, run the following commands:
@@ -17,40 +17,31 @@ git remote set-head origin -a
 ```
 
 ### Build
-While this first step is optional, it's arguably easiest to create a virtual environment to keep the required libraries contained.
+Navigate to the project directory (assuming you're not already there) and install the required libraries.
 
 ```sh
-$ pip install virtualenv
-$ virtualenv ./venv
-$ source ./venv/bin/activate
-```
-
-Once the virtual environment is set up and active, navigate to the project directory (assuming you're not already there) and install the required libraries.
-
-```sh
-$ cd /path/to/esb-data-standard
-$ pip install -r requirements.txt
+cd /path/to/esb-data-standard
+pipenv install
 ```
 
 If you've made changes to the specification, do the following:
 
 ```sh
-$ cd docs
-$ python tableschema_docs_parser.py
+cd docs
+pipenv run python tableschema_docs_parser.py
 ```
 
 After executing the above (or assuming you haven't made changes), navigate to the `docs` folder and run the following commands:
 
 ```sh
-$ make html
-$ cd build/html
-$ python -m http.server
+sphinx-build -b html source build
+python -m http.server --directory build
 ```
 
 Open a browser and connect to [http://localhost:8000](http://localhost:8000) and you should see the documentation.
 
 ## Publishing a new release
 
-When publishing a new release, double-check that there are no errors in the tableschema, the version numbers are correct in `tableschema.json`, `datapackage.json` (soon-to-be removed on the next release), and `conf.py`, the documentation contains no build errors, and the documentation is viewable locally using the steps defined above.
+When publishing a new release, double-check that there are no errors in the tableschema, the version numbers are correct in `tableschema.json` and `conf.py`, the documentation contains no build errors, and the documentation is viewable locally using the steps defined above.
 
 When creating a GitHub release, make sure to explicitly add the latest `tableschema.json` to the release so implementers of the standard can easily access the file to use to validate their standardized datasets using the [DataCurator](https://github.com/qcif/data-curator).

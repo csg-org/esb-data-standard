@@ -10,7 +10,7 @@ import datetime
 project = 'EAVS Section B Data Standard'
 copyright = '{}, The Council of State Governments'.format(datetime.date.today().year)
 author = 'John Dziurlaj, Jared Marcotte'
-release = '0.13.2'
+release = '0.14.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
